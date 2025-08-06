@@ -1,59 +1,38 @@
 #!/usr/bin/env python3
 """
 Auto-update events.json for SOUND VISION BUZZ
-
-Output format
--------------
-{
-  "generated": "2025-08-06T21:04:08Z",
-  "events": [ { …real events… } ]
-}
-
-Pipeline
---------
-1. Load existing events (tolerant UTF-8, drop legacy {generated} rows).
-2. TODO: fetch fresh events from external sources.
-3. Merge / de-dupe / classify / affiliate-tag.
-4. Write back in clean UTF-8.
+--------------------------------------------
+1. Load current events (UTF-8, drop legacy {generated} rows).
+2. Pull fresh events from external sources (Ticketmaster first).
+3. Merge / de-dupe / tag.
+4. Write back in wrapped JSON:
+   { "generated": "...Z", "events": [ … ] }
 """
 
 from __future__ import annotations
-import json
-import datetime as dt
+import json, datetime as dt
 from pathlib import Path
+
+# ── external source modules ──────────────────────────────────────────
+from sources import ticketmaster   # NEW ▶ pulls Discovery API events
 
 DATA_PATH = Path(__file__).parent / "events.json"
 
-
 # ─────────────────────────── Helpers ────────────────────────────────
 def load_events() -> list[dict]:
-    """
-    Return a clean list of real events.
-    Handles both the new wrapped format and the old flat array,
-    and drops stray `{ "generated": ... }` rows inside the list.
-    """
+    """Return clean list of real events (no stray {generated})."""
     if not DATA_PATH.exists():
         return []
-
     text = DATA_PATH.read_bytes().decode("utf-8", errors="replace")
-
-    # Try wrapped form first
-    try:
-        data = json.loads(text)
-        events = data.get("events", [])       # when wrapped
-    except Exception:
-        # Fallback: maybe the whole file is a flat array
+    try:                                    # wrapped form
+        events = json.loads(text).get("events", [])
+    except Exception:                       # maybe flat array
         events = json.loads(text) if text.lstrip().startswith("[") else []
-
-    # Filter out any legacy metadata-only objects
     return [ev for ev in events if not (ev.keys() == {"generated"})]
 
 
-def save_feed(generated_iso: str, events: list[dict]) -> None:
-    feed = {
-        "generated": generated_iso,
-        "events": events,
-    }
+def save_feed(stamp_iso: str, events: list[dict]) -> None:
+    feed = {"generated": stamp_iso, "events": events}
     DATA_PATH.write_text(
         json.dumps(feed, ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -61,22 +40,19 @@ def save_feed(generated_iso: str, events: list[dict]) -> None:
     print("events.json written:", DATA_PATH.absolute())
 
 
-# ─────────────────────────── TODO: External sources stubs ────────────
+# ─────────────────────────── Source aggregation ─────────────────────
 def fetch_from_sources() -> list[dict]:
     """
-    Placeholder aggregator.
-    Add real calls to Ticketmaster, Eventbrite, etc. here.
-    Must return a list of event dicts in the canonical schema.
+    Pull fresh events from all external providers.
+    Extend the list (or make it dynamic) as needed.
     """
-    # Example: return ticketmaster.fetch([...]) + eventbrite.fetch([...])
-    return []
+    santa_barbara_cluster = ["Santa Barbara", "Montecito", "93101", "93108"]
+    return ticketmaster.fetch(santa_barbara_cluster)
+    # + eventbrite.fetch(...)  (add later)
 
 
 def merge_dedupe(existing: list[dict], new: list[dict]) -> list[dict]:
-    """
-    Very simple de-dupe by unique 'id'. Replace with fuzzy
-    matching if needed.
-    """
+    """Simple de-dupe by unique 'id'. Override for fuzzy matching later."""
     by_id: dict[str, dict] = {ev["id"]: ev for ev in existing if "id" in ev}
     for ev in new:
         by_id[ev["id"]] = ev
@@ -85,17 +61,18 @@ def merge_dedupe(existing: list[dict], new: list[dict]) -> list[dict]:
 
 # ─────────────────────────── Main entry ─────────────────────────────
 def main() -> None:
-    base_events = load_events()
+    base_events  = load_events()
     fresh_events = fetch_from_sources()
-    events = merge_dedupe(base_events, fresh_events)
+    events       = merge_dedupe(base_events, fresh_events)
 
-    timestamp = dt.datetime.utcnow().isoformat(timespec="seconds") + "Z"
-    save_feed(timestamp, events)
-    print(f"✓ Wrapped feed updated ({len(events)} events) @ {timestamp}")
+    stamp = dt.datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    save_feed(stamp, events)
+    print(f"✓ Feed updated ({len(events)} events) @ {stamp}")
 
 
 if __name__ == "__main__":
     main()
+
 
 
 
