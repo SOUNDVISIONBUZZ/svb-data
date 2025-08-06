@@ -1,5 +1,8 @@
 [
   {
+    "generated": "2025-08-06T06:23:15Z"
+  },
+  {
     "id": "sb001",
     "title": "Summer Nights Concert: Spencer the Gardener",
     "category": "Music",
@@ -7,7 +10,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-01T18:00:00-07:00",
-    "end":   "2025-08-01T20:00:00-07:00",
+    "end": "2025-08-01T20:00:00-07:00",
     "venue": "SB County Courthouse Sunken Gardens",
     "address": "1100 Anacapa St, Santa Barbara, CA",
     "popularity": 98
@@ -20,7 +23,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-07T17:00:00-07:00",
-    "end":   "2025-08-07T20:00:00-07:00",
+    "end": "2025-08-07T20:00:00-07:00",
     "venue": "Downtown State Street Galleries",
     "address": "1130 State St, Santa Barbara, CA",
     "popularity": 95
@@ -33,7 +36,7 @@
     "city": "Santa Barbara",
     "zip": "93103",
     "start": "2025-08-02T19:00:00-07:00",
-    "end":   "2025-08-02T22:30:00-07:00",
+    "end": "2025-08-02T22:30:00-07:00",
     "venue": "Santa Barbara Bowl",
     "address": "1122 N Milpas St, Santa Barbara, CA",
     "popularity": 99
@@ -46,7 +49,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-03T20:00:00-07:00",
-    "end":   "2025-08-03T22:00:00-07:00",
+    "end": "2025-08-03T22:00:00-07:00",
     "venue": "Lobero Theatre",
     "address": "33 E Canon Perdido St, Santa Barbara, CA",
     "popularity": 92
@@ -59,7 +62,7 @@
     "city": "Santa Barbara",
     "zip": "93103",
     "start": "2025-08-04T10:00:00-07:00",
-    "end":   "2025-08-04T12:00:00-07:00",
+    "end": "2025-08-04T12:00:00-07:00",
     "venue": "Art From Scrap",
     "address": "302 E Cota St, Santa Barbara, CA",
     "popularity": 80
@@ -72,7 +75,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-05T20:30:00-07:00",
-    "end":   "2025-08-05T23:00:00-07:00",
+    "end": "2025-08-05T23:00:00-07:00",
     "venue": "SOhO Restaurant & Music Club",
     "address": "1221 State St, Santa Barbara, CA",
     "popularity": 90
@@ -85,7 +88,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-06T19:30:00-07:00",
-    "end":   "2025-08-06T21:30:00-07:00",
+    "end": "2025-08-06T21:30:00-07:00",
     "venue": "Granada Theatre",
     "address": "1214 State St, Santa Barbara, CA",
     "popularity": 91
@@ -98,7 +101,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-07T14:00:00-07:00",
-    "end":   "2025-08-07T15:00:00-07:00",
+    "end": "2025-08-07T15:00:00-07:00",
     "venue": "Santa Barbara Museum of Art",
     "address": "1130 State St, Santa Barbara, CA",
     "popularity": 82
@@ -111,7 +114,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-08T17:00:00-07:00",
-    "end":   "2025-08-08T20:00:00-07:00",
+    "end": "2025-08-08T20:00:00-07:00",
     "venue": "The Funk Zone",
     "address": "137 Anacapa St, Santa Barbara, CA",
     "popularity": 88
@@ -124,7 +127,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-09T19:00:00-07:00",
-    "end":   "2025-08-09T21:30:00-07:00",
+    "end": "2025-08-09T21:30:00-07:00",
     "venue": "Arlington Theatre",
     "address": "1317 State St, Santa Barbara, CA",
     "popularity": 94
@@ -137,7 +140,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-10T11:00:00-07:00",
-    "end":   "2025-08-10T13:00:00-07:00",
+    "end": "2025-08-10T13:00:00-07:00",
     "venue": "MOXI, The Wolf Museum of Exploration + Innovation",
     "address": "125 State St, Santa Barbara, CA",
     "popularity": 79
@@ -150,7 +153,7 @@
     "city": "Goleta",
     "zip": "93106",
     "start": "2025-08-11T19:00:00-07:00",
-    "end":   "2025-08-11T21:00:00-07:00",
+    "end": "2025-08-11T21:00:00-07:00",
     "venue": "UCSB Campbell Hall",
     "address": "Building 538, Mesa Rd, Goleta, CA",
     "popularity": 84
@@ -163,7 +166,7 @@
     "city": "Montecito",
     "zip": "93108",
     "start": "2025-08-12T19:30:00-07:00",
-    "end":   "2025-08-12T21:00:00-07:00",
+    "end": "2025-08-12T21:00:00-07:00",
     "venue": "Music Academy of the West",
     "address": "1070 Fairway Rd, Montecito, CA",
     "popularity": 87
@@ -176,7 +179,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-13T18:30:00-07:00",
-    "end":   "2025-08-13T20:00:00-07:00",
+    "end": "2025-08-13T20:00:00-07:00",
     "venue": "Casa de la Guerra",
     "address": "15 E De La Guerra St, Santa Barbara, CA",
     "popularity": 86
@@ -189,7 +192,7 @@
     "city": "Santa Barbara",
     "zip": "93105",
     "start": "2025-08-14T18:00:00-07:00",
-    "end":   "2025-08-14T20:00:00-07:00",
+    "end": "2025-08-14T20:00:00-07:00",
     "venue": "Elings Park",
     "address": "1298 Las Positas Rd, Santa Barbara, CA",
     "popularity": 83
@@ -202,7 +205,7 @@
     "city": "Carpinteria",
     "zip": "93013",
     "start": "2025-08-15T12:00:00-07:00",
-    "end":   "2025-08-15T16:00:00-07:00",
+    "end": "2025-08-15T16:00:00-07:00",
     "venue": "Carpinteria Arts Center",
     "address": "865 Linden Ave, Carpinteria, CA",
     "popularity": 78
@@ -215,7 +218,7 @@
     "city": "Solvang",
     "zip": "93463",
     "start": "2025-08-16T19:30:00-07:00",
-    "end":   "2025-08-16T22:00:00-07:00",
+    "end": "2025-08-16T22:00:00-07:00",
     "venue": "Solvang Festival Theater",
     "address": "420 2nd St, Solvang, CA",
     "popularity": 85
@@ -228,7 +231,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-17T09:00:00-07:00",
-    "end":   "2025-08-17T12:00:00-07:00",
+    "end": "2025-08-17T12:00:00-07:00",
     "venue": "Shoreline Park",
     "address": "Shoreline Dr, Santa Barbara, CA",
     "popularity": 74
@@ -241,7 +244,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-18T18:00:00-07:00",
-    "end":   "2025-08-18T20:00:00-07:00",
+    "end": "2025-08-18T20:00:00-07:00",
     "venue": "Paseo Nuevo Plaza",
     "address": "651 Paseo Nuevo, Santa Barbara, CA",
     "popularity": 76
@@ -254,7 +257,7 @@
     "city": "Los Olivos",
     "zip": "93441",
     "start": "2025-08-19T13:00:00-07:00",
-    "end":   "2025-08-19T17:00:00-07:00",
+    "end": "2025-08-19T17:00:00-07:00",
     "venue": "Los Olivos Galleries",
     "address": "2900 Grand Ave, Los Olivos, CA",
     "popularity": 77
@@ -267,7 +270,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-20T11:00:00-07:00",
-    "end":   "2025-08-20T16:00:00-07:00",
+    "end": "2025-08-20T16:00:00-07:00",
     "venue": "MCASB",
     "address": "653 Paseo Nuevo, Santa Barbara, CA",
     "popularity": 80
@@ -280,7 +283,7 @@
     "city": "Isla Vista",
     "zip": "93117",
     "start": "2025-08-21T17:00:00-07:00",
-    "end":   "2025-08-21T19:00:00-07:00",
+    "end": "2025-08-21T19:00:00-07:00",
     "venue": "Anisq'Oyo' Park",
     "address": "960 Embarcadero Del Mar, Isla Vista, CA",
     "popularity": 72
@@ -293,7 +296,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-22T18:00:00-07:00",
-    "end":   "2025-08-22T20:00:00-07:00",
+    "end": "2025-08-22T20:00:00-07:00",
     "venue": "Municipal Winemakers",
     "address": "22 Anacapa St, Santa Barbara, CA",
     "popularity": 78
@@ -306,7 +309,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-23T10:00:00-07:00",
-    "end":   "2025-08-23T16:00:00-07:00",
+    "end": "2025-08-23T16:00:00-07:00",
     "venue": "Carriage and Western Art Museum",
     "address": "129 Castillo St, Santa Barbara, CA",
     "popularity": 75
@@ -319,7 +322,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-23T20:00:00-07:00",
-    "end":   "2025-08-23T23:00:00-07:00",
+    "end": "2025-08-23T23:00:00-07:00",
     "venue": "Topa Topa Brewing Co. (Funk Zone)",
     "address": "120 Santa Barbara St, Santa Barbara, CA",
     "popularity": 73
@@ -332,7 +335,7 @@
     "city": "Santa Barbara",
     "zip": "93103",
     "start": "2025-08-24T19:30:00-07:00",
-    "end":   "2025-08-24T22:00:00-07:00",
+    "end": "2025-08-24T22:00:00-07:00",
     "venue": "Santa Barbara Bowl",
     "address": "1122 N Milpas St, Santa Barbara, CA",
     "popularity": 85
@@ -345,7 +348,7 @@
     "city": "Goleta",
     "zip": "93117",
     "start": "2025-08-25T19:00:00-07:00",
-    "end":   "2025-08-25T21:00:00-07:00",
+    "end": "2025-08-25T21:00:00-07:00",
     "venue": "GVCC Auditorium",
     "address": "5679 Hollister Ave, Goleta, CA",
     "popularity": 70
@@ -358,7 +361,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-26T20:00:00-07:00",
-    "end":   "2025-08-26T22:00:00-07:00",
+    "end": "2025-08-26T22:00:00-07:00",
     "venue": "Sunken Gardens",
     "address": "1100 Anacapa St, Santa Barbara, CA",
     "popularity": 86
@@ -371,7 +374,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-27T18:00:00-07:00",
-    "end":   "2025-08-27T20:30:00-07:00",
+    "end": "2025-08-27T20:30:00-07:00",
     "venue": "Community Arts Workshop",
     "address": "631 Garden St, Santa Barbara, CA",
     "popularity": 71
@@ -384,7 +387,7 @@
     "city": "Santa Barbara",
     "zip": "93109",
     "start": "2025-08-28T18:00:00-07:00",
-    "end":   "2025-08-28T20:00:00-07:00",
+    "end": "2025-08-28T20:00:00-07:00",
     "venue": "Santa Barbara Maritime Museum",
     "address": "113 Harbor Way #190, Santa Barbara, CA",
     "popularity": 74
@@ -397,7 +400,7 @@
     "city": "Santa Barbara",
     "zip": "93105",
     "start": "2025-08-29T17:00:00-07:00",
-    "end":   "2025-08-29T20:00:00-07:00",
+    "end": "2025-08-29T20:00:00-07:00",
     "venue": "SB Museum of Natural History",
     "address": "2559 Puesta Del Sol, Santa Barbara, CA",
     "popularity": 79
@@ -410,7 +413,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-08-30T16:00:00-07:00",
-    "end":   "2025-08-30T18:00:00-07:00",
+    "end": "2025-08-30T18:00:00-07:00",
     "venue": "La Arcada",
     "address": "1114 State St, Santa Barbara, CA",
     "popularity": 75
@@ -423,7 +426,7 @@
     "city": "Santa Barbara",
     "zip": "93109",
     "start": "2025-08-31T17:00:00-07:00",
-    "end":   "2025-08-31T19:00:00-07:00",
+    "end": "2025-08-31T19:00:00-07:00",
     "venue": "Mesa Verde Lawn",
     "address": "1919 Cliff Dr, Santa Barbara, CA",
     "popularity": 68
@@ -436,7 +439,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-09-01T18:00:00-07:00",
-    "end":   "2025-09-01T20:00:00-07:00",
+    "end": "2025-09-01T20:00:00-07:00",
     "venue": "Santa Barbara Public Market",
     "address": "38 W Victoria St, Santa Barbara, CA",
     "popularity": 72
@@ -449,7 +452,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-09-02T19:30:00-07:00",
-    "end":   "2025-09-02T21:00:00-07:00",
+    "end": "2025-09-02T21:00:00-07:00",
     "venue": "Lobero Theatre",
     "address": "33 E Canon Perdido St, Santa Barbara, CA",
     "popularity": 83
@@ -462,7 +465,7 @@
     "city": "Goleta",
     "zip": "93117",
     "start": "2025-09-03T18:00:00-07:00",
-    "end":   "2025-09-03T20:00:00-07:00",
+    "end": "2025-09-03T20:00:00-07:00",
     "venue": "Camino Real Marketplace",
     "address": "7004 Marketplace Dr, Goleta, CA",
     "popularity": 76
@@ -475,7 +478,7 @@
     "city": "Carpinteria",
     "zip": "93013",
     "start": "2025-09-04T10:00:00-07:00",
-    "end":   "2025-09-04T15:00:00-07:00",
+    "end": "2025-09-04T15:00:00-07:00",
     "venue": "Carpinteria State Beach",
     "address": "5361 6th St, Carpinteria, CA",
     "popularity": 70
@@ -488,7 +491,7 @@
     "city": "Santa Barbara",
     "zip": "93103",
     "start": "2025-09-05T19:00:00-07:00",
-    "end":   "2025-09-05T22:00:00-07:00",
+    "end": "2025-09-05T22:00:00-07:00",
     "venue": "Santa Barbara Bowl",
     "address": "1122 N Milpas St, Santa Barbara, CA",
     "popularity": 97
@@ -501,7 +504,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-09-06T13:00:00-07:00",
-    "end":   "2025-09-06T14:00:00-07:00",
+    "end": "2025-09-06T14:00:00-07:00",
     "venue": "Museum of Contemporary Art SB",
     "address": "653 Paseo Nuevo, Santa Barbara, CA",
     "popularity": 74
@@ -514,7 +517,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-09-07T18:30:00-07:00",
-    "end":   "2025-09-07T21:30:00-07:00",
+    "end": "2025-09-07T21:30:00-07:00",
     "venue": "Granada Theatre",
     "address": "1214 State St, Santa Barbara, CA",
     "popularity": 90
@@ -527,7 +530,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-09-08T19:00:00-07:00",
-    "end":   "2025-09-08T21:30:00-07:00",
+    "end": "2025-09-08T21:30:00-07:00",
     "venue": "SOhO Restaurant & Music Club",
     "address": "1221 State St, Santa Barbara, CA",
     "popularity": 81
@@ -540,7 +543,7 @@
     "city": "Santa Barbara",
     "zip": "93103",
     "start": "2025-09-09T10:00:00-07:00",
-    "end":   "2025-09-09T12:00:00-07:00",
+    "end": "2025-09-09T12:00:00-07:00",
     "venue": "Art From Scrap",
     "address": "302 E Cota St, Santa Barbara, CA",
     "popularity": 69
@@ -553,7 +556,7 @@
     "city": "Montecito",
     "zip": "93108",
     "start": "2025-09-10T19:00:00-07:00",
-    "end":   "2025-09-10T21:00:00-07:00",
+    "end": "2025-09-10T21:00:00-07:00",
     "venue": "Music Academy of the West",
     "address": "1070 Fairway Rd, Montecito, CA",
     "popularity": 85
@@ -566,7 +569,7 @@
     "city": "Los Olivos",
     "zip": "93441",
     "start": "2025-09-11T11:00:00-07:00",
-    "end":   "2025-09-11T15:00:00-07:00",
+    "end": "2025-09-11T15:00:00-07:00",
     "venue": "Lavinia Campbell Park",
     "address": "2900 Grand Ave, Los Olivos, CA",
     "popularity": 72
@@ -579,7 +582,7 @@
     "city": "Solvang",
     "zip": "93463",
     "start": "2025-09-12T18:00:00-07:00",
-    "end":   "2025-09-12T20:30:00-07:00",
+    "end": "2025-09-12T20:30:00-07:00",
     "venue": "Solvang Park",
     "address": "Mission Dr & First St, Solvang, CA",
     "popularity": 78
@@ -592,7 +595,7 @@
     "city": "Goleta",
     "zip": "93117",
     "start": "2025-09-13T10:00:00-07:00",
-    "end":   "2025-09-13T15:00:00-07:00",
+    "end": "2025-09-13T15:00:00-07:00",
     "venue": "Goleta Old Town",
     "address": "Hollister Ave, Goleta, CA",
     "popularity": 71
@@ -605,7 +608,7 @@
     "city": "Carpinteria",
     "zip": "93013",
     "start": "2025-09-14T17:30:00-07:00",
-    "end":   "2025-09-14T19:30:00-07:00",
+    "end": "2025-09-14T19:30:00-07:00",
     "venue": "Heath Ranch Meadow",
     "address": "4800 Foothill Rd, Carpinteria, CA",
     "popularity": 69
@@ -618,7 +621,7 @@
     "city": "Santa Barbara",
     "zip": "93101",
     "start": "2025-09-15T17:30:00-07:00",
-    "end":   "2025-09-15T19:00:00-07:00",
+    "end": "2025-09-15T19:00:00-07:00",
     "venue": "Santa Barbara Museum of Art",
     "address": "1130 State St, Santa Barbara, CA",
     "popularity": 82
@@ -631,7 +634,7 @@
     "city": "Santa Barbara",
     "zip": "93106",
     "start": "2025-09-15T19:00:00-07:00",
-    "end":   "2025-09-15T20:30:00-07:00",
+    "end": "2025-09-15T20:30:00-07:00",
     "venue": "UCSB Lotte Lehmann Concert Hall",
     "address": "UC Santa Barbara, Santa Barbara, CA",
     "popularity": 80
@@ -644,10 +647,9 @@
     "city": "Santa Ynez",
     "zip": "93460",
     "start": "2025-09-16T17:30:00-07:00",
-    "end":   "2025-09-16T20:30:00-07:00",
+    "end": "2025-09-16T20:30:00-07:00",
     "venue": "Sunstone Winery",
     "address": "125 Refugio Rd, Santa Ynez, CA",
     "popularity": 87
   }
 ]
-
