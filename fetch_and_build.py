@@ -2,8 +2,7 @@
 """
 Auto-update events.json for SOUND VISION BUZZ.
 
-Road-map:
-1. Load existing events.json (tolerant UTF-8).
+1. Load the existing events.json (tolerant UTF-8).
 2. TODO: fetch new events from APIs / feeds.
 3. Merge / de-dupe and write back in clean UTF-8.
 """
@@ -15,6 +14,7 @@ from pathlib import Path
 DATA_PATH = Path(__file__).parent / "events.json"
 
 
+# ─────────────────────────── Helpers ────────────────────────────────
 def load_events() -> list[dict]:
     """Load events.json, forgiving any stray bytes."""
     raw = DATA_PATH.read_bytes()                 # read as bytes
@@ -33,13 +33,13 @@ def save_events(events: list[dict]) -> None:
     )
 
 
+# ─────────────────────────── Main entry ─────────────────────────────
 def main() -> None:
     events = load_events()
 
-    # ── TODO: FETCH & MERGE NEW DATA HERE ─────────────────────────────
-    # new_events = fetch_from_ticketmaster(...) + fetch_from_eventbrite(...)
+    # TODO: replace with real fetch / merge logic
+    # new_events = fetch_ticketmaster(...) + fetch_eventbrite(...)
     # events = merge_dedupe(events, new_events)
-    # ------------------------------------------------------------------
 
     # prepend a generation timestamp so we know the workflow ran
     events.insert(
@@ -53,3 +53,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
