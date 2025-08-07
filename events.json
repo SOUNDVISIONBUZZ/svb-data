@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-06T22:34:18Z",
+  "generated": "2025-08-07T01:40:30Z",
   "events": [
     {
       "id": "sb001",
@@ -13,19 +13,6 @@
       "venue": "SB County Courthouse Sunken Gardens",
       "address": "1100 Anacapa St, Santa Barbara, CA",
       "popularity": 98
-    },
-    {
-      "id": "sb002",
-      "title": "1st Thursday Art Walk",
-      "category": "Art",
-      "genre": "Multiple Media",
-      "city": "Montecito",
-      "zip": "93108",
-      "start": "2025-08-07T17:00:00-07:00",
-      "end": "2025-08-07T20:00:00-07:00",
-      "venue": "Downtown State Street Galleries",
-      "address": "1130 State St, Santa Barbara, CA",
-      "popularity": 95
     },
     {
       "id": "sb003",
@@ -104,6 +91,19 @@
       "venue": "Santa Barbara Museum of Art",
       "address": "1130 State St, Santa Barbara, CA",
       "popularity": 82
+    },
+    {
+      "id": "sb002",
+      "title": "1st Thursday Art Walk",
+      "category": "Art",
+      "genre": "Multiple Media",
+      "city": "Montecito",
+      "zip": "93108",
+      "start": "2025-08-07T17:00:00-07:00",
+      "end": "2025-08-07T20:00:00-07:00",
+      "venue": "Downtown State Street Galleries",
+      "address": "1130 State St, Santa Barbara, CA",
+      "popularity": 95
     },
     {
       "id": "sb009",
