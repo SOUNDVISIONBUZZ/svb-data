@@ -1,82 +1,104 @@
-# ─── LiveNotesSB scraper — sources/livenotessb.py ──────────────────────────
+# sources/livenotessb.py
 """
-Scraper for https://livenotessb.com   (Santa Barbara live-music listings).
+Scraper for LiveNotesSB.com   (Santa Barbara live-music listing)
 
-✓ No Selenium — pure requests + BeautifulSoup, OK for GitHub Actions runner
-✓ Emits events in the same schema used by fetch_and_build.py
+* zero dependencies beyond requests + beautifulsoup4
+* designed to run inside GitHub Actions (no Selenium)
+
+Returns a list[dict] compatible with events.json.
 """
 
 from __future__ import annotations
-import datetime as dt, re, requests
+import datetime as dt, re, requests, hashlib
 from bs4 import BeautifulSoup
+from typing import List, Dict
 
-BASE      = "https://livenotessb.com"
-HDR_RE    = re.compile(r"^(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\s+–", re.I)
-UTC_OFF   = "-07:00"          # PDT; tweak if site changes to PST
+BASE          = "https://livenotessb.com"
+UA            = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                               "AppleWebKit/537.36 (KHTML, like Gecko) "
+                               "Chrome/125.0 Safari/537.36"}
+DAY_HDR_RE    = re.compile(r"^[A-Z]+DAY – (\w+) (\d{1,2})$", re.I)
+TIME_RE       = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*(am|pm)", re.I)
+MONTHS        = {m.lower(): i for i,  m in enumerate(
+                 ["January","February","March","April","May","June",
+                  "July","August","September","October","November","December"], 1)}
 
-# ── helpers ────────────────────────────────────────────────────────────────
-def _iso(raw_date: str, raw_time: str) -> str:
-    """
-    >>> _iso("Aug 23 2025", "8 pm")
-    '2025-08-23T20:00:00-07:00'
-    """
-    stamp = f"{raw_date} {raw_time.upper()}"
-    d = dt.datetime.strptime(stamp, "%b %d %Y %I %p")
-    return d.isoformat() + UTC_OFF
+def _iso(d: dt.datetime) -> str:
+    """return ISO-8601 string with TZ offset for Pacific (-07:00 summer, -08:00 winter)"""
+    return d.isoformat(timespec="seconds") + ("-07:00" if d.dst() else "-08:00")
 
-def _download(timeout: int = 25) -> str:
-    """Return raw HTML from LiveNotesSB front page."""
-    return requests.get(BASE, headers={"User-Agent": "Mozilla/5.0"},
-                        timeout=timeout).text
+def _make_id(date: dt.date, venue: str, artist: str) -> str:
+    """stable, human-readable ID"""
+    slug = re.sub(r"[^a-z0-9]+", "", f"{venue}-{artist}".lower())[:32]
+    return f"lnsb-{date:%Y%m%d}-{slug}"
 
-# ── main entry-point ───────────────────────────────────────────────────────
-def fetch(city_filter: str | None = None) -> list[dict]:
-    """
-    Return a list of event-dicts.  Pass `city_filter="Goleta"` to keep only that city.
-    """
+def fetch(city_filter: str | None = None, timeout: int = 45) -> List[Dict]:
     print("• LiveNotesSB fetch")
-    html  = _download()
-    soup  = BeautifulSoup(html, "html.parser")
-    posts = soup.select("div.page-content > *")   # mix of <h4> and <p>
+    html = requests.get(BASE, headers=UA, timeout=timeout).text
+    soup = BeautifulSoup(html, "html.parser")
 
-    events: list[dict] = []
-    current_date = None
-    for el in posts:
-        if el.name == "h4":                        # date header
-            hdr = el.get_text(" ", strip=True).replace("\xa0", " ")
-            if HDR_RE.match(hdr):
-                # "TUESDAY – August 5"  → "August 5"
-                current_date = " ".join(hdr.split("–")[1:]).strip()
-        elif current_date and el.name == "p" and "–" in el.text:
-            try:
-                # Example paragraph:
-                #   “*Soho – An Evening with Henry Kapono (island rock) – 8 pm ($25)”
-                parts = [t.strip(" *–") for t in el.stripped_strings]
-                venue_part, detail_part = parts[0], " ".join(parts[1:])
-                venue, _ = venue_part.split(" ", 1) if " " in venue_part else (venue_part, "")
-                title, time_part = detail_part.rsplit(" – ", 1)
-                start = _iso(f"{current_date} {dt.datetime.now().year}", time_part)
-                evt_id = f"lnsb-{hash(title+start) & 0xffffffff:x}"
+    events: List[Dict] = []
+    now_year = dt.date.today().year
 
-                event = {
-                    "id":       evt_id,
-                    "title":    title,
+    # Walk through each heading
+    for h4 in soup.find_all("h4"):
+        hdr_txt = h4.get_text(" ", strip=True).replace("\xa0", " ")
+        m = DAY_HDR_RE.match(hdr_txt)
+        if not m:
+            continue                       # not a day header we recognise
+
+        month_name, day_str = m.groups()
+        month = MONTHS[month_name.lower()]
+        day   = int(day_str)
+
+        # Each <p> until the next <h4> (or <hr>) belongs to this date
+        ptr = h4.find_next_sibling()
+        while ptr and ptr.name not in ("h4", "hr"):
+            if ptr.name == "p" and "–" in ptr.text:
+                # crude parse “– Venue – Artist (genre) – 5-8 pm”
+                parts = [seg.strip(" –") for seg in ptr.stripped_strings]
+                if len(parts) < 2:
+                    ptr = ptr.find_next_sibling()
+                    continue
+
+                venue, rest = parts[0], " ".join(parts[1:])
+                time_m = TIME_RE.search(rest)
+                if not time_m:
+                    ptr = ptr.find_next_sibling()
+                    continue
+
+                hr, min_, ampm = int(time_m.group(1)), time_m.group(2), time_m.group(3).lower()
+                minute = int(min_) if min_ else 0
+                if ampm == "pm" and hr < 12:
+                    hr += 12
+                date_obj = dt.datetime(now_year, month, day, hr, minute)
+
+                # very rough 2-hour default
+                end_obj  = date_obj + dt.timedelta(hours=2)
+
+                artist = rest.split("–")[0].strip()
+                city   = "Santa Barbara" if "Santa Barbara" in venue else ""
+
+                if city_filter and city_filter.lower() not in city.lower():
+                    ptr = ptr.find_next_sibling()
+                    continue
+
+                events.append({
+                    "id"      : _make_id(date_obj.date(), venue, artist),
+                    "title"   : f"{venue}: {artist}",
                     "category": "Music",
-                    "genre":    "",           # unknown
-                    "city":     "Santa Barbara",
-                    "zip":      "",
-                    "start":    start,
-                    "end":      "",           # unknown
-                    "venue":    venue,
-                    "address":  "",
-                    "popularity": 70
-                }
-                if (not city_filter) or (city_filter.lower() in event["city"].lower()):
-                    events.append(event)
-            except Exception:
-                continue        # skip malformed paragraph
+                    "genre"   : "",
+                    "city"    : city or "Santa Barbara",
+                    "zip"     : "",
+                    "start"   : _iso(date_obj),
+                    "end"     : _iso(end_obj),
+                    "venue"   : venue,
+                    "address" : "",
+                    "popularity": 50   # arbitrary
+                })
+            ptr = ptr.find_next_sibling()
 
     print(f"  ↳ {len(events)} LiveNotesSB events")
     return events
-# ───────────────────────────────────────────────────────────────────────────
+
 
