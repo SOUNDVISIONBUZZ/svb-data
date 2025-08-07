@@ -1,53 +1,71 @@
 # sources/livenotessb.py
 """
-Light-weight scraper for https://livenotessb.com/
-
-• Looks at every <h4> “DAY – Month DD” header
-• Reads the <p> blocks that follow until the next header/hr
-• Splits each <p> on the first two dashes (-, – or —)
+Scraper for https://livenotessb.com/  –  returns a list of event dicts.
 """
 
 from __future__ import annotations
-import datetime as dt, re, unicodedata, html
+import datetime as dt, re, unicodedata, html, time
 from bs4 import BeautifulSoup
 import requests
 
-URL   = "https://livenotessb.com/"
-UA    = {"User-Agent": "Mozilla/5.0"}
-TZ    = dt.timezone(dt.timedelta(hours=-7))          # PDT
-DASH  = r"[-–—\-]"                                  # all dash chars
+URL = "https://livenotessb.com/"
+UA  = {
+    "User-Agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) "
+        "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"
+}
+TZ  = dt.timezone(dt.timedelta(hours=-7))        # PDT / Pacific
+DASH = r"[-–—\-]"
 
-# ───────────────────────── helpers ─────────────────────────
+# ────────────── helpers (unchanged) ──────────────
 MONTHS = {m.lower(): i for i, m in enumerate(
-    ("January February March April May June July August September October November December").split(), 1)
+    "January February March April May June July August September October November December".split(), 1)
 }
 
-def slug(txt: str, limit: int = 32) -> str:
+def slug(txt: str, lim: int = 32) -> str:
     txt = unicodedata.normalize("NFKD", txt).encode("ascii", "ignore").decode()
     txt = re.sub(r"[^a-z0-9]+", "-", txt.lower()).strip("-")
-    return (txt[:limit].rsplit("-", 1)[0] or txt) if len(txt) > limit else txt
+    return (txt[:lim].rsplit("-", 1)[0] or txt) if len(txt) > lim else txt
 
 def parse_date(month: str, day: int) -> dt.date:
     today = dt.date.today()
     for year in (today.year, today.year + 1):
         try:
             d = dt.date(year, MONTHS[month.lower()], day)
+            if d >= today - dt.timedelta(days=2):
+                return d
         except ValueError:
-            continue
-        if d >= today - dt.timedelta(days=2):
-            return d
+            pass
     raise ValueError
 
 TIME_RE = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*([ap]m)", re.I)
 HDR_RE  = re.compile(rf"\b([A-Za-z]+)\s*{DASH}\s*([A-Za-z]+)\s+(\d{{1,2}})", re.I)
 
+# ────────────── downloader with retry ──────────────
+def _get_html() -> str | None:
+    for attempt in range(3):
+        try:
+            r = requests.get(URL, headers=UA, timeout=(5, 60))
+            r.raise_for_status()
+            return r.text
+        except Exception as e:
+            wait = 2 ** attempt
+            print(f"  ↻ LiveNotesSB attempt {attempt+1}/3 failed ({e}); retrying in {wait}s …")
+            time.sleep(wait)
+    print("  ✕ LiveNotesSB: gave up after 3 attempts.")
+    return None
+
+# ────────────── main fetch ──────────────
 def fetch() -> list[dict]:
-    soup = BeautifulSoup(requests.get(URL, headers=UA, timeout=20).text, "html.parser")
+    html_txt = _get_html()
+    if html_txt is None:
+        return []
+
+    soup = BeautifulSoup(html_txt, "html.parser")
     events: list[dict] = []
 
     for h4 in soup.find_all("h4"):
-        hdr = h4.get_text(" ", strip=True).replace("\xa0", " ")
-        m = HDR_RE.search(hdr)
+        m = HDR_RE.search(h4.get_text(" ", strip=True).replace("\xa0", " "))
         if not m:
             continue
         month, day = m.group(2), int(m.group(3))
@@ -98,6 +116,7 @@ def fetch() -> list[dict]:
     return events
 
 lnsb_fetch = fetch
+
 
 
 
