@@ -1,0 +1,38 @@
+name: Auto-update events.json
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # every 6 h
+  workflow_dispatch:        # manual Run button
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:            # let the action push commits
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run feed builder
+        run: python fetch_and_build.py
+
+      - name: Commit & push updated feed
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "actions@github.com"
+
+          git add events.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "CI: update events.json"
+          git push origin HEAD:main
