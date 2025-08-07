@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-07T07:01:22Z",
+  "generated": "2025-08-07T19:29:50Z",
   "events": [
     {
       "id": "sb001",
@@ -54,6 +54,45 @@
       "popularity": 80
     },
     {
+      "id": "lnsb-20250805-union-for-open-mic-n",
+      "title": "Union (formerly Wylde Works): Open Mic Night",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-05T19:00:00-07:00",
+      "end": "2025-08-05T21:00:00-07:00",
+      "venue": "Union (formerly Wylde Works)",
+      "address": "",
+      "popularity": 50
+    },
+    {
+      "id": "lnsb-20250805-soho-an-evening",
+      "title": "Soho: An Evening with Henry Kapono (island rock)",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-05T20:00:00-07:00",
+      "end": "2025-08-05T22:00:00-07:00",
+      "venue": "Soho",
+      "address": "",
+      "popularity": 50
+    },
+    {
+      "id": "lnsb-20250805-the-red-pi-ivy-alex",
+      "title": "The Red Piano: Ivy Alex (pianist, entertainer)",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-05T20:00:00-07:00",
+      "end": "2025-08-05T00:00:00-07:00",
+      "venue": "The Red Piano",
+      "address": "",
+      "popularity": 50
+    },
+    {
       "id": "sb006",
       "title": "SOhO: Local Natives",
       "category": "Music",
@@ -80,6 +119,32 @@
       "popularity": 91
     },
     {
+      "id": "lnsb-20250806-the-red-pi-ivy-alex",
+      "title": "The Red Piano: Ivy Alex (pianist, entertainer)",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-06T20:00:00-07:00",
+      "end": "2025-08-06T00:00:00-07:00",
+      "venue": "The Red Piano",
+      "address": "",
+      "popularity": 50
+    },
+    {
+      "id": "lnsb-20250806-soho-jimi-hendr",
+      "title": "Soho: Jimi Hendrix Night featuring The Jackson Gillies Experience and The 805 Blues Collective (rock, psychedelic rock)",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-06T20:30:00-07:00",
+      "end": "2025-08-06T22:30:00-07:00",
+      "venue": "Soho",
+      "address": "",
+      "popularity": 50
+    },
+    {
       "id": "sb008",
       "title": "SBMA: Contemporary Painting Tour",
       "category": "Art",
@@ -104,6 +169,58 @@
       "venue": "Downtown State Street Galleries",
       "address": "1130 State St, Santa Barbara, CA",
       "popularity": 95
+    },
+    {
+      "id": "lnsb-20250807-slodoco-open-mic-n",
+      "title": "SloDoCo: Open Mic Night",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-07T19:00:00-07:00",
+      "end": "2025-08-07T00:00:00-07:00",
+      "venue": "SloDoCo",
+      "address": "",
+      "popularity": 50
+    },
+    {
+      "id": "lnsb-20250807-the-red-pi-ivy-alex",
+      "title": "The Red Piano: Ivy Alex (pianist, entertainer)",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-07T20:00:00-07:00",
+      "end": "2025-08-07T00:00:00-07:00",
+      "venue": "The Red Piano",
+      "address": "",
+      "popularity": 50
+    },
+    {
+      "id": "lnsb-20250807-soho-black-part",
+      "title": "Soho: Black Party (soul, r&b) with special guest Claire Brooks (r&b, pop)",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-07T20:00:00-07:00",
+      "end": "2025-08-07T22:00:00-07:00",
+      "venue": "Soho",
+      "address": "",
+      "popularity": 50
+    },
+    {
+      "id": "lnsb-20250807-maverick-s-open-mic-n",
+      "title": "Maverick Saloon: Open Mic Night",
+      "category": "Music",
+      "genre": "",
+      "city": "Santa Barbara",
+      "zip": "",
+      "start": "2025-08-07T20:00:00-07:00",
+      "end": "2025-08-07T22:00:00-07:00",
+      "venue": "Maverick Saloon",
+      "address": "",
+      "popularity": 50
     },
     {
       "id": "sb009",
