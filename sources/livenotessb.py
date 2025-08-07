@@ -1,15 +1,10 @@
 # sources/livenotessb.py
 """
-Scraper for https://livenotessb.com/
+Light-weight scraper for https://livenotessb.com/
 
-Grabs each <h4> header like  “TUESDAY – August 5”
-then every <p> until the next <h4>/<hr>, looking for lines:
-
-  *Venue – Artist (genre) – 5-8 pm
-
-• Accepts normal / en / em dashes.
-• Converts NBSPs to normal spaces.
-• Creates an id  lnsb-YYYYMMDD-slug .
+• Looks at every <h4> “DAY – Month DD” header
+• Reads the <p> blocks that follow until the next header/hr
+• Splits each <p> on the first two dashes (-, – or —)
 """
 
 from __future__ import annotations
@@ -18,12 +13,13 @@ from bs4 import BeautifulSoup
 import requests
 
 URL   = "https://livenotessb.com/"
-HEAD  = {"User-Agent": "Mozilla/5.0"}
-TZ    = dt.timezone(dt.timedelta(hours=-7))          # PDT / Santa Barbara
-DLASH = "-–—-"                                      # hyphen, en-dash, em-dash
+UA    = {"User-Agent": "Mozilla/5.0"}
+TZ    = dt.timezone(dt.timedelta(hours=-7))          # PDT
+DASH  = r"[-–—\-]"                                  # all dash chars
 
-MONTH_NUM = {m.lower(): i for i, m in enumerate(
-    "January February March April May June July August September October November December".split(), 1)
+# ───────────────────────── helpers ─────────────────────────
+MONTHS = {m.lower(): i for i, m in enumerate(
+    ("January February March April May June July August September October November December").split(), 1)
 }
 
 def slug(txt: str, limit: int = 32) -> str:
@@ -31,89 +27,78 @@ def slug(txt: str, limit: int = 32) -> str:
     txt = re.sub(r"[^a-z0-9]+", "-", txt.lower()).strip("-")
     return (txt[:limit].rsplit("-", 1)[0] or txt) if len(txt) > limit else txt
 
-def next_date(month: str, day: int) -> dt.date:
+def parse_date(month: str, day: int) -> dt.date:
     today = dt.date.today()
-    for add_year in (0, 1):
+    for year in (today.year, today.year + 1):
         try:
-            d = dt.date(today.year + add_year, MONTH_NUM[month.lower()], day)
+            d = dt.date(year, MONTHS[month.lower()], day)
         except ValueError:
             continue
-        if d >= today - dt.timedelta(days=2):       # allow 48 h past
+        if d >= today - dt.timedelta(days=2):
             return d
-    raise ValueError("unusable date in header")
+    raise ValueError
 
 TIME_RE = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*([ap]m)", re.I)
-HDR_RE  = re.compile(rf"\b([A-Za-z]+)\s*[{DLASH}]\s*([A-Za-z]+)\s+(\d{{1,2}})", re.I)
-ROW_RE  = re.compile(
-    rf"^\*?\s*(?P<venue>[^ {DLASH}][^{DLASH}]+?)\s*[{DLASH}]\s*"
-    rf"(?P<artist>[^ {DLASH}][^{DLASH}]+?)\s*[{DLASH}]\s*"
-    rf"(?P<time>.+?)$"
-)
+HDR_RE  = re.compile(rf"\b([A-Za-z]+)\s*{DASH}\s*([A-Za-z]+)\s+(\d{{1,2}})", re.I)
 
 def fetch() -> list[dict]:
-    html_text = requests.get(URL, headers=HEAD, timeout=20).text
-    soup = BeautifulSoup(html_text, "html.parser")
-
+    soup = BeautifulSoup(requests.get(URL, headers=UA, timeout=20).text, "html.parser")
     events: list[dict] = []
 
     for h4 in soup.find_all("h4"):
-        header = h4.get_text(" ", strip=True).replace("\u00a0", " ")
-        m = HDR_RE.search(header)
+        hdr = h4.get_text(" ", strip=True).replace("\xa0", " ")
+        m = HDR_RE.search(hdr)
         if not m:
             continue
         month, day = m.group(2), int(m.group(3))
-        e_date = next_date(month, day)
+        ev_date = parse_date(month, day)
 
-        for tag in h4.find_next_siblings():
-            if tag.name in ("h4", "hr"):
+        for p in h4.find_next_siblings():
+            if p.name in ("h4", "hr"):
                 break
-            if tag.name != "p":
+            if p.name != "p":
                 continue
 
-            text = tag.get_text(" ", strip=True).replace("\u00a0", " ")
-            text = html.unescape(text)
-            row = ROW_RE.match(text)
-            if not row:
+            txt = html.unescape(p.get_text(" ", strip=True).replace("\xa0", " "))
+            parts = re.split(rf"\s*{DASH}\s*", txt, maxsplit=2)
+            if len(parts) < 3:
                 continue
 
-            venue  = row["venue"].strip()
-            artist = row["artist"].strip()
+            venue, artist, rest = map(str.strip, parts[:3])
 
-            # optional (genre) inside artist
             genre = None
             g = re.search(r"\(([^)]+)\)", artist)
             if g:
                 genre = g.group(1).strip()
                 artist = artist[:g.start()].strip()
 
-            t = TIME_RE.search(row["time"])
+            t = TIME_RE.search(rest)
             if not t:
                 continue
-            hour = int(t.group(1)) % 12 + (12 if t.group(3).lower() == "pm" else 0)
-            minute = int(t.group(2) or 0)
-            start = dt.datetime.combine(e_date, dt.time(hour, minute), TZ)
+            hr = int(t.group(1)) % 12 + (12 if t.group(3).lower() == "pm" else 0)
+            mn = int(t.group(2) or 0)
+            start = dt.datetime.combine(ev_date, dt.time(hr, mn), TZ)
             end   = start + dt.timedelta(hours=2)
 
-            ev_id = f"lnsb-{start:%Y%m%d}-{slug(artist or venue)}"
             events.append({
-                "id": ev_id,
-                "title": artist or venue,
+                "id"      : f"lnsb-{start:%Y%m%d}-{slug(artist or venue)}",
+                "title"   : artist or venue,
                 "category": "Music",
-                "genre": genre,
-                "city": "Santa Barbara",
-                "zip": "",
-                "start": start.isoformat(),
-                "end": end.isoformat(),
-                "venue": venue,
-                "address": "",
+                "genre"   : genre,
+                "city"    : "Santa Barbara",
+                "zip"     : "",
+                "start"   : start.isoformat(),
+                "end"     : end.isoformat(),
+                "venue"   : venue,
+                "address" : "",
                 "popularity": 60,
             })
 
-    print(f"• LiveNotesSB fetch\n  ↳ {len(events)} LiveNotesSB events")
+    print(f"• LiveNotesSB fetch — {len(events)} events")
     return events
 
-# alias
 lnsb_fetch = fetch
+
 
 
 
