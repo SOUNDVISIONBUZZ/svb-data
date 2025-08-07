@@ -1,22 +1,26 @@
 # sources/livenotessb.py
 """
-Light-weight scraper for https://livenotessb.com/
+Scraper for https://livenotessb.com/
 
-• Finds each <h4> DAY – Month DD header.
-• Grabs following <p> lines that look like   *Venue – Artist (genre) – 7-9 pm
-• Builds events lasting 2 h starting at the first time mentioned.
+Grabs each <h4> header like  “TUESDAY – August 5”
+then every <p> until the next <h4>/<hr>, looking for lines:
+
+  *Venue – Artist (genre) – 5-8 pm
+
+• Accepts normal / en / em dashes.
+• Converts NBSPs to normal spaces.
+• Creates an id  lnsb-YYYYMMDD-slug .
 """
 
 from __future__ import annotations
-import datetime as dt, re, unicodedata, hashlib
+import datetime as dt, re, unicodedata, html
 from bs4 import BeautifulSoup
 import requests
 
 URL   = "https://livenotessb.com/"
 HEAD  = {"User-Agent": "Mozilla/5.0"}
-TZ    = dt.timezone(dt.timedelta(hours=-7))          # PDT
-DLASH = r"[–—\-]"                                    # en/em/normal hyphen
-SP_DASH_SP = re.compile(rf"\s+{DLASH}\s+")
+TZ    = dt.timezone(dt.timedelta(hours=-7))          # PDT / Santa Barbara
+DLASH = "-–—-"                                      # hyphen, en-dash, em-dash
 
 MONTH_NUM = {m.lower(): i for i, m in enumerate(
     "January February March April May June July August September October November December".split(), 1)
@@ -34,47 +38,55 @@ def next_date(month: str, day: int) -> dt.date:
             d = dt.date(today.year + add_year, MONTH_NUM[month.lower()], day)
         except ValueError:
             continue
-        if d >= today - dt.timedelta(days=2):   # tolerate slight past
+        if d >= today - dt.timedelta(days=2):       # allow 48 h past
             return d
-    raise ValueError("date out of range")
+    raise ValueError("unusable date in header")
 
 TIME_RE = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*([ap]m)", re.I)
+HDR_RE  = re.compile(rf"\b([A-Za-z]+)\s*[{DLASH}]\s*([A-Za-z]+)\s+(\d{{1,2}})", re.I)
+ROW_RE  = re.compile(
+    rf"^\*?\s*(?P<venue>[^ {DLASH}][^{DLASH}]+?)\s*[{DLASH}]\s*"
+    rf"(?P<artist>[^ {DLASH}][^{DLASH}]+?)\s*[{DLASH}]\s*"
+    rf"(?P<time>.+?)$"
+)
 
-# ───────────────────────── scrape ──────────────────────────────────
 def fetch() -> list[dict]:
-    html = requests.get(URL, headers=HEAD, timeout=20).text
-    soup = BeautifulSoup(html, "html.parser")
+    html_text = requests.get(URL, headers=HEAD, timeout=20).text
+    soup = BeautifulSoup(html_text, "html.parser")
 
     events: list[dict] = []
 
     for h4 in soup.find_all("h4"):
         header = h4.get_text(" ", strip=True).replace("\u00a0", " ")
-        m = re.search(rf"\b([A-Za-z]+)\s*{DLASH}\s*([A-Za-z]+)\s+(\d{{1,2}})", header)
+        m = HDR_RE.search(header)
         if not m:
             continue
         month, day = m.group(2), int(m.group(3))
         e_date = next_date(month, day)
 
-        for p in h4.find_next_siblings():
-            if p.name in ("h4", "hr"):
+        for tag in h4.find_next_siblings():
+            if tag.name in ("h4", "hr"):
                 break
-            if p.name != "p":
+            if tag.name != "p":
                 continue
 
-            text = p.get_text(" ", strip=True).replace("\u00a0", " ")
-            parts = SP_DASH_SP.split(text, maxsplit=2)
-            if len(parts) < 3:
-                continue            # not a “Venue – Artist – Time” line
+            text = tag.get_text(" ", strip=True).replace("\u00a0", " ")
+            text = html.unescape(text)
+            row = ROW_RE.match(text)
+            if not row:
+                continue
 
-            venue, artist_part, time_part = map(str.strip, parts[:3])
+            venue  = row["venue"].strip()
+            artist = row["artist"].strip()
 
-            # genre?
-            g = re.search(r"\(([^)]+)\)", artist_part)
-            genre = g.group(1).strip() if g else ""
-            title = re.sub(r"\s*\(.*", "", artist_part).strip()
+            # optional (genre) inside artist
+            genre = None
+            g = re.search(r"\(([^)]+)\)", artist)
+            if g:
+                genre = g.group(1).strip()
+                artist = artist[:g.start()].strip()
 
-            # first time in the chunk (handles “5-8 pm”)
-            t = TIME_RE.search(time_part)
+            t = TIME_RE.search(row["time"])
             if not t:
                 continue
             hour = int(t.group(1)) % 12 + (12 if t.group(3).lower() == "pm" else 0)
@@ -82,12 +94,12 @@ def fetch() -> list[dict]:
             start = dt.datetime.combine(e_date, dt.time(hour, minute), TZ)
             end   = start + dt.timedelta(hours=2)
 
-            ev_id = f"lnsb-{start:%Y%m%d}-{slug(title or venue)}"
+            ev_id = f"lnsb-{start:%Y%m%d}-{slug(artist or venue)}"
             events.append({
                 "id": ev_id,
-                "title": title or venue,
+                "title": artist or venue,
                 "category": "Music",
-                "genre": genre or None,
+                "genre": genre,
                 "city": "Santa Barbara",
                 "zip": "",
                 "start": start.isoformat(),
@@ -100,8 +112,9 @@ def fetch() -> list[dict]:
     print(f"• LiveNotesSB fetch\n  ↳ {len(events)} LiveNotesSB events")
     return events
 
-# alias for fetch_and_build.py
+# alias
 lnsb_fetch = fetch
+
 
 
 
