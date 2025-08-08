@@ -1,49 +1,18 @@
-{
-  "generated": "2025-08-08T00:54:33Z",
-  "total_events": 3,
-  "sources": {
-    "livenotessb": 0,
-    "samples": 3
+[
+  {
+    "id": "lnsb-2025-08-06-event-skip-to-content",
+    "title": "Skip to content",
+    "category": "Music",
+    "start": "2025-08-06T21:00:00-07:00",
+    "city": "Santa Barbara",
+    "address": "800 Block of State Street"
   },
-  "events": [
-    {
-      "id": "sb001",
-      "title": "Summer Nights Concert: Spencer the Gardener",
-      "category": "Music",
-      "genre": "Rock",
-      "city": "Santa Barbara",
-      "zip": "93101",
-      "start": "2025-08-01T18:00:00-07:00",
-      "end": "2025-08-01T20:00:00-07:00",
-      "venue": "SB County Courthouse Sunken Gardens",
-      "address": "1100 Anacapa St, Santa Barbara, CA 93101",
-      "popularity": 98
-    },
-    {
-      "id": "sb002",
-      "title": "Downtown Friday Night Concert",
-      "category": "Music",
-      "genre": "Folk",
-      "city": "Santa Barbara",
-      "zip": "93101",
-      "start": "2025-08-08T19:00:00-07:00",
-      "end": "2025-08-08T21:00:00-07:00",
-      "venue": "Paseo Nuevo",
-      "address": "651 Paseo Nuevo, Santa Barbara, CA 93101",
-      "popularity": 85
-    },
-    {
-      "id": "sb003",
-      "title": "Jazz at the Bowl",
-      "category": "Music",
-      "genre": "Jazz",
-      "city": "Santa Barbara",
-      "zip": "93103",
-      "start": "2025-08-15T20:00:00-07:00",
-      "end": "2025-08-15T22:30:00-07:00",
-      "venue": "Santa Barbara Bowl",
-      "address": "1122 N Milpas St, Santa Barbara, CA 93103",
-      "popularity": 92
-    }
-  ]
-}
+  {
+    "id": "lnsb-2025-08-06-event-corktree-cellars",
+    "title": "Corktree Cellars",
+    "category": "Music",
+    "start": "2025-08-06T21:00:00-07:00",
+    "city": "Santa Barbara",
+    "address": "800 Block of State Street"
+  }
+]
