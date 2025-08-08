@@ -20,10 +20,10 @@ IOS_PATHS = [
 def build(allow_empty: bool = False, debug: bool = False) -> int:
     print("Building Santa Barbara events data...")
     print("Fetching LiveNotesSB events...")
-    lnsb = lnsb_fetch()
-    print(f"Found {len(lnsb)} LiveNotesSB events")
+    items = lnsb_fetch()
+    print(f"Found {len(items)} LiveNotesSB events")
 
-    if not lnsb:
+    if not items:
         msg = "No events found."
         if allow_empty:
             print("WARNING:", msg)
@@ -33,18 +33,18 @@ def build(allow_empty: bool = False, debug: bool = False) -> int:
             print("ERROR:", msg)
             return 2
 
-    def _key(ev):
+    def _k(ev):
         try:
-            return datetime.fromisoformat(ev["start"].replace("Z", "+00:00"))
+            return datetime.fromisoformat(ev["start"].replace("Z","+00:00"))
         except Exception:
             return datetime.max
-    lnsb.sort(key=_key)
+    items.sort(key=_k)
 
-    OUT.write_text(json.dumps(lnsb, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"✅ Built events.json with {len(lnsb)} events")
+    OUT.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"✅ Built events.json with {len(items)} events")
 
     if debug:
-        for i, ev in enumerate(lnsb[:3], start=1):
+        for i, ev in enumerate(items[:3], start=1):
             print(f"{i}. {ev.get('title')}")
             loc = ev.get('address') or ev.get('venue_name') or ev.get('city','')
             print(f"   📍 {loc}")
