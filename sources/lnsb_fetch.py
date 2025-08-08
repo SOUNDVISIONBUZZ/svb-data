@@ -1,12 +1,17 @@
 # sources/lnsb_fetch.py
-# LiveNotesSB scraper that ONLY scrapes the homepage and uses JSON-LD first.
-# Adds simple debug prints so you can see what's found.
+# LiveNotesSB scraper:
+# - Try JSON-LD from plain HTML (requests)
+# - If none, fall back to headless Selenium to render homepage and parse JSON-LD
+# - Very conservative HTML fallback to avoid nav/hero junk
+# ASCII-only.
 
 from __future__ import annotations
 
+import os
 import re
 import json
 import html
+import time
 import datetime as dt
 from typing import List, Dict, Optional
 
@@ -14,6 +19,8 @@ import requests
 from bs4 import BeautifulSoup
 
 SITE = "https://livenotessb.com"
+
+# ---------------- helpers ----------------
 
 def _tz_offset(d: dt.datetime) -> str:
     return "-07:00" if 3 <= d.month <= 11 else "-08:00"
@@ -41,7 +48,7 @@ def _parse_isoish(s: str) -> Optional[dt.datetime]:
     m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", s)
     if m:
         y, mo, d = map(int, m.groups())
-        return dt.datetime(y, mo, d, 19, 0)
+        return dt.datetime(y, mo, d, 19, 0)  # default 7pm
     m = re.fullmatch(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2})", s)
     if m:
         try:
@@ -88,9 +95,7 @@ def _event_dict(daytime: Optional[dt.datetime],
 
 def _fetch(url: str) -> Optional[str]:
     try:
-        r = requests.get(url, timeout=20, headers={
-            "User-Agent": "Mozilla/5.0 (compatible; SVB/1.0; +https://soundvision.buzz)"
-        })
+        r = requests.get(url, timeout=20, headers={"User-Agent": "Mozilla/5.0 (SVB/1.0)"})
         if r.status_code == 200 and r.text:
             return r.text
         print(f"Fetch {url} returned {r.status_code}")
@@ -98,34 +103,33 @@ def _fetch(url: str) -> Optional[str]:
         print(f"Fetch failed for {url}: {e}")
     return None
 
+# ---------------- JSON-LD ----------------
+
 def _iter_jsonld(soup: BeautifulSoup):
     for tag in soup.find_all("script", attrs={"type": "application/ld+json"}):
         txt = tag.string or tag.get_text()
         if not txt:
             continue
-        # Some sites jam multiple JSON objects together; try best-effort splits
-        chunks = []
+        # Attempt simple parse; ignore failures
         try:
-            chunks = [json.loads(txt)]
+            yield json.loads(txt)
         except Exception:
-            # naive split on }\s*{ boundaries
+            # naive split on glued JSONs
             parts = re.split(r"}\s*{", txt.strip())
             if len(parts) > 1:
                 fixed = []
                 for i, p in enumerate(parts):
                     if i == 0:
                         fixed.append(p + "}")
-                    elif i == len(parts)-1:
+                    elif i == len(parts) - 1:
                         fixed.append("{" + p)
                     else:
                         fixed.append("{" + p + "}")
                 for f in fixed:
                     try:
-                        chunks.append(json.loads(f))
+                        yield json.loads(f)
                     except Exception:
                         pass
-        for c in chunks:
-            yield c
 
 def _flatten_jsonld(root):
     stack = [root]
@@ -190,30 +194,142 @@ def _from_jsonld_obj(obj: dict) -> Optional[Dict]:
 
     return _event_dict(start_dt, title, venue_name, addr, city, zip_code)
 
-def lnsb_fetch() -> List[Dict]:
-    html = _fetch(SITE)
-    if not html:
-        print("LNSB: no HTML")
-        return []
-    soup = BeautifulSoup(html, "html.parser")
-
-    # 1) JSON-LD first
-    jsonld_events: List[Dict] = []
-    blobs = list(_iter_jsonld(soup))
-    print(f"LNSB: JSON-LD scripts found: {len(blobs)}")
-    for blob in blobs:
+def _jsonld_events_from_html(html_text: str) -> List[Dict]:
+    soup = BeautifulSoup(html_text, "html.parser")
+    out: List[Dict] = []
+    for blob in _iter_jsonld(soup):
         for obj in _flatten_jsonld(blob):
             ev = _from_jsonld_obj(obj)
             if ev:
-                jsonld_events.append(ev)
+                out.append(ev)
+    return out
 
-    # de-dupe & future filter
+# ---------------- HTML fallback (conservative) ----------------
+
+MONTHS = "(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)"
+DATE_RE = re.compile(rf"\b{MONTHS}\s+\d{{1,2}}(?:,\s*\d{{4}})?\b", re.I)
+TIME_RE = re.compile(r"\b\d{1,2}(?::\d{2})?\s*(am|pm)\b", re.I)
+
+def _html_fallback(html_text: str) -> List[Dict]:
+    soup = BeautifulSoup(html_text, "html.parser")
+    out: List[Dict] = []
+    cards = soup.select("article, .tribe-events-calendar-list__event, .mec-event-article, .mec-event-list-item")
+    def txt(el): return _clean(el.get_text(" ")) if el else ""
+    for c in cards:
+        t = txt(c)
+        if not (DATE_RE.search(t) and TIME_RE.search(t)):
+            continue
+        # title
+        t_el = c.select_one(".tribe-events-calendar-list__event-title a, .mec-event-title a, h3, h2, a")
+        title = txt(t_el)
+        if not title or title.strip().lower() in {"skip to content", "home", "about", "contact", "menu"}:
+            continue
+        # date/time -> compose
+        date_m = DATE_RE.search(t)
+        time_m = TIME_RE.search(t)
+        if not date_m:
+            continue
+        # default 7pm if time missing
+        date_str = date_m.group(0)
+        time_str = time_m.group(0) if time_m else "7:00 pm"
+        # minimal parse: combine into iso-ish and let _parse_isoish handle
+        # We do not attempt to produce exact ISO here; just feed to _parse_isoish via f-string
+        # Example: "2025-08-05T19:00"
+        # But since we only have "Aug 5, 2025", we rely on _parse_isoish to default time.
+        dt_guess = None
+        try:
+            # Try a direct strptime first
+            dt_guess = dt.datetime.strptime(date_str, "%B %d, %Y")
+        except Exception:
+            try:
+                dt_guess = dt.datetime.strptime(date_str, "%b %d, %Y")
+            except Exception:
+                dt_guess = None
+        if not dt_guess:
+            continue
+        # time parse
+        hm = re.search(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", time_str, re.I)
+        if hm:
+            h = int(hm.group(1)); m = int(hm.group(2) or 0); ap = hm.group(3).lower()
+            if ap == "pm" and h < 12: h += 12
+            if ap == "am" and h == 12: h = 0
+            dt_guess = dt_guess.replace(hour=h, minute=m)
+        else:
+            dt_guess = dt_guess.replace(hour=19, minute=0)
+        # venue/address best-effort
+        venue = txt(c.select_one(".tribe-events-venue, .venue, .location, .mec-venue-name"))
+        addr_text = txt(c.select_one(".tribe-events-address, .address, .mec-address")) or t
+        zip_code = None
+        mz = re.search(r"\b(\d{5})(?:-\d{4})?\b", addr_text)
+        if mz: zip_code = mz.group(1)
+        ev = _event_dict(dt_guess, title, venue or None, addr_text or None, "Santa Barbara", zip_code)
+        if ev:
+            out.append(ev)
+    return out
+
+# ---------------- selenium fallback ----------------
+
+def _render_with_selenium(url: str) -> Optional[str]:
+    # Skip if explicitly disabled (e.g., CI)
+    if os.getenv("SVB_USE_SELENIUM", "1") not in ("1", "true", "True"):
+        return None
+    try:
+        from selenium import webdriver
+        from selenium.webdriver.chrome.options import Options
+        from webdriver_manager.chrome import ChromeDriverManager
+
+        opts = Options()
+        # modern headless
+        opts.add_argument("--headless=new")
+        opts.add_argument("--no-sandbox")
+        opts.add_argument("--disable-dev-shm-usage")
+        opts.add_argument("--disable-gpu")
+        opts.add_argument("--window-size=1200,1800")
+
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=opts)
+        driver.get(url)
+        # Give it a moment to render and fetch JSON-LD
+        time.sleep(4)
+        page = driver.page_source
+        driver.quit()
+        return page
+    except Exception as e:
+        print(f"Selenium fallback failed: {e}")
+        return None
+
+# ---------------- entry ----------------
+
+def lnsb_fetch() -> List[Dict]:
+    # Only the homepage is valid; /events etc. 404
+    html_text = _fetch(SITE)
+    if not html_text:
+        print("LNSB: no HTML")
+        return []
+
+    # 1) Try JSON-LD from plain HTML
+    events = _jsonld_events_from_html(html_text)
+
+    # 2) If none, try headless Selenium render and re-parse JSON-LD
+    if not events:
+        rendered = _render_with_selenium(SITE)
+        if rendered:
+            events = _jsonld_events_from_html(rendered)
+            # If still none, try conservative HTML fallback on rendered content
+            if not events:
+                events = _html_fallback(rendered)
+
+    # 3) Final conservative HTML fallback on plain HTML (rare)
+    if not events:
+        events = _html_fallback(html_text)
+
+    # Filter future-ish and dedupe
     seen = set()
     out: List[Dict] = []
-    for ev in jsonld_events:
+    now = dt.datetime.now() - dt.timedelta(days=1)
+    for ev in events:
         try:
-            start_dt = dt.datetime.fromisoformat(ev["start"].replace("Z","+00:00"))
-            if start_dt < dt.datetime.now() - dt.timedelta(days=1):
+            start_dt = dt.datetime.fromisoformat(ev["start"].replace("Z", "+00:00"))
+            if start_dt < now:
                 continue
         except Exception:
             pass
@@ -221,20 +337,6 @@ def lnsb_fetch() -> List[Dict]:
             continue
         seen.add(ev["id"])
         out.append(ev)
-
-    print(f"LNSB: JSON-LD events parsed: {len(out)}")
-
-    # 2) If none, minimal HTML fallback (very strict)
-    if not out:
-        text = soup.get_text(" ")
-        # Look for obvious event lines like "Aug 10, 2025", etc.
-        DATE_RE = re.compile(r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)\s+\d{1,2}(?:,\s*\d{4})?\b")
-        TIME_RE = re.compile(r"\b\d{1,2}(?::\d{2})?\s*(am|pm)\b", re.I)
-        if DATE_RE.search(text) and TIME_RE.search(text):
-            # This is deliberately conservative; without structure we won't guess titles.
-            print("LNSB: found date/time hints in HTML but no JSON-LD; skipping to avoid junk.")
-        else:
-            print("LNSB: no recognizable events in HTML.")
 
     # Sort by start
     def _k(e):
