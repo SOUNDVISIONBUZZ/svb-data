@@ -1,26 +1,22 @@
 # sources/lnsb_fetch.py
-# LiveNotesSB scraper that segments the homepage text into individual events.
-# - No Selenium, no JSON-LD. Pure text parsing of bullets and "Venue - Title - time".
+# LiveNotesSB scraper: parse homepage bullets only (no Selenium/JSON-LD).
+# - Splits the big lineup into bullet segments.
+# - Extracts "Venue - Title - time" from each bullet only (no global triples).
+# - Filters region headers / junk, enriches from data/venues_sb.json.
 # - Writes tmp_lnsb/index.html, segments.txt, preview.txt for debugging.
-# - Enriches with data/venues_sb.json (address, zip, city) if available.
 
 from __future__ import annotations
 
-import re
-import json
-import html
-import datetime as dt
+import re, json, html, datetime as dt
 from typing import List, Dict, Optional, Tuple
 from pathlib import Path
-
 import requests
 from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://livenotessb.com"
 VENUE_REG = ROOT / "data" / "venues_sb.json"
-DEBUG_DIR = ROOT / "tmp_lnsb"
-DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+DEBUG_DIR = ROOT / "tmp_lnsb"; DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 
 MONTHS = r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)"
 DATE_RE = re.compile(rf"\b{MONTHS}\s+\d{{1,2}}(?:,\s*\d{{2,4}})?\b", re.I)
@@ -28,21 +24,19 @@ TIME_TOKEN_RE = re.compile(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", re.I)
 
 BLACKLIST_TITLES = {"skip to content","home","about","contact","menu","search","events","calendar","venues"}
 REGION_HEADERS = {
-    "CARPINTERIA", "SANTA BARBARA", "GOLETA/I.V", "GOLETA / I.V",
-    "SANTA YNEZ/LOS OLIVOS", "SANTA YNEZ / LOS OLIVOS", "SOLVANG"
+    "CARPINTERIA","SANTA BARBARA","GOLETA/I.V","GOLETA / I.V",
+    "SANTA YNEZ/LOS OLIVOS","SANTA YNEZ / LOS OLIVOS","SOLVANG"
 }
 
 def _clean(s: Optional[str]) -> str:
     if not s: return ""
-    s = html.unescape(s)
-    s = s.replace("\xa0", " ").replace("–", "-").replace("—", "-").replace("•", "*")
-    return re.sub(r"\s+", " ", s).strip()
+    s = html.unescape(s).replace("\xa0"," ").replace("–","-").replace("—","-").replace("•","*")
+    return re.sub(r"\s+"," ",s).strip()
 
 def _fetch_html(url: str) -> Optional[str]:
     try:
-        r = requests.get(url, timeout=20, headers={"User-Agent": "Mozilla/5.0 (SVB/1.0)"})
-        if r.status_code == 200 and r.text:
-            return r.text
+        r = requests.get(url, timeout=20, headers={"User-Agent":"Mozilla/5.0 (SVB/1.0)"})
+        if r.status_code == 200 and r.text: return r.text
         print(f"LNSB fetch {r.status_code} {url}")
     except Exception as e:
         print(f"LNSB fetch error: {e}")
@@ -69,10 +63,7 @@ def _pick_date_context(text: str, today: dt.date) -> dt.date:
     return today
 
 def _parse_time_range(tstr: str) -> Optional[dt.time]:
-    """
-    Accepts '6-9 pm', '7 pm-12 am', '7:30 pm', '6 pm' etc. Returns the START time.
-    """
-    t = _clean(tstr).lower().replace(".", "")
+    t = _clean(tstr).lower().replace(".","")
     m = re.search(
         r"\b(?P<h1>\d{1,2})(?::(?P<m1>\d{2}))?\s*(?P<ap1>am|pm)?\s*(?:-\s*(?P<h2>\d{1,2})(?::(?P<m2>\d{2}))?\s*(?P<ap2>am|pm)?)?",
         t, re.I
@@ -81,25 +72,20 @@ def _parse_time_range(tstr: str) -> Optional[dt.time]:
     h1 = int(m.group("h1")); m1 = int(m.group("m1") or 0)
     ap1 = (m.group("ap1") or "").lower()
     ap2 = (m.group("ap2") or "").lower()
-    if not ap1:
-        ap1 = ap2 or ("pm" if 4 <= h1 <= 11 else "am")
+    if not ap1: ap1 = ap2 or ("pm" if 4 <= h1 <= 11 else "am")
     if ap1 == "pm" and h1 < 12: h1 += 12
     if ap1 == "am" and h1 == 12: h1 = 0
-    if 0 <= h1 <= 23 and 0 <= m1 <= 59:
-        return dt.time(h1, m1)
+    if 0 <= h1 <= 23 and 0 <= m1 <= 59: return dt.time(h1, m1)
     return None
 
 def _is_region_header(s: str) -> bool:
     ss = _clean(s).upper()
-    for hdr in REGION_HEADERS:
-        if ss.startswith(hdr):
-            return True
-    return False
+    return any(ss.startswith(h) for h in REGION_HEADERS)
 
 def _segment_bullets(text: str) -> List[str]:
-    # Force line breaks before bullets/stars, then split
-    text = re.sub(r"\s\*\s+", "\n* ", text)
-    text = re.sub(r"\s•\s+", "\n* ", text)
+    # Insert line breaks before stars/bullets, then split
+    text = re.sub(r"\s\*\s+","\n* ",text)
+    text = re.sub(r"\s•\s+","\n* ",text)
     parts = re.split(r"(?:^|\n)\*\s+", text)
     segs = []
     for p in parts:
@@ -107,87 +93,56 @@ def _segment_bullets(text: str) -> List[str]:
         if not p: continue
         if p.lower() in BLACKLIST_TITLES: continue
         if _is_region_header(p): continue
-        # drop obvious junk tails
-        if "iOS App Android App" in p: 
-            p = p.replace("iOS App Android App","").strip(" -")
-        # drop stray "9 pm * ..." style fragments
-        if re.match(r"^\d{1,2}(\:\d{2})?\s*(am|pm)\b", p, re.I):
-            continue
+        # drop global tails and stray time-leading fragments
+        if "iOS App Android App" in p: p = p.replace("iOS App Android App","").strip(" -")
+        if re.match(r"^\d{1,2}(:\d{2})?\s*(am|pm)\b", p, re.I): continue
         segs.append(p)
     return segs
 
-def _segment_triples(text: str) -> List[Tuple[str, str, str]]:
-    triples = []
-    # Venue - Title - time
-    for m in re.finditer(r"([A-Z0-9][^-]{1,80}?)\s-\s([^-\n]{1,160}?)\s-\s([^.\n]{4,60}?\b(?:am|pm)\b[^.\n]{0,30})", text, re.I):
-        venue = _clean(m.group(1))
-        title = _clean(m.group(2))
-        ttxt  = _clean(m.group(3))
-        if not venue or _is_region_header(venue): 
-            continue
-        if venue.lower() in BLACKLIST_TITLES: 
-            continue
-        if not title or not TIME_TOKEN_RE.search(ttxt): 
-            continue
-        # kill obvious junk bits
-        if "iOS App Android App" in title: 
-            title = title.replace("iOS App Android App", "").strip(" -")
-        triples.append((venue, title, ttxt))
-    return triples
-
-def _extract_from_segment(seg: str) -> Optional[Tuple[str, str, str]]:
-    # Try explicit triple split first
-    parts = [p.strip() for p in _clean(seg).split(" - ")]
+def _extract_from_segment(seg: str) -> Optional[Tuple[str,str,str]]:
+    seg = _clean(seg)
+    parts = [s.strip() for s in seg.split(" - ")]
     if len(parts) >= 3 and not _is_region_header(parts[0]):
         venue = parts[0]
+        # first non-time chunk after the venue is title
         title = next((c for c in parts[1:] if not TIME_TOKEN_RE.search(c)), parts[1])
         time_text = next((c for c in reversed(parts) if TIME_TOKEN_RE.search(c)), "")
-        if venue and title and time_text:
-            return (venue, title, time_text)
-    # Fallback: scan for a time and split around it
+        if venue and title and time_text: return (venue, title, time_text)
+    # fallback: find a time and split around it
     m = TIME_TOKEN_RE.search(seg)
     if m:
-        before = seg[:m.start()].strip(" -"); after = seg[m.start():].strip()
+        before, after = seg[:m.start()].strip(" -"), seg[m.start():].strip()
         sub = before.split(" - ", 1)
-        venue, title = (sub[0], sub[1]) if len(sub) == 2 else (before, before)
-        if not _is_region_header(venue) and venue and title:
-            return (venue, title, after)
+        venue, title = (sub[0], sub[1]) if len(sub)==2 else (before, before)
+        if not _is_region_header(venue) and venue and title: return (venue, title, after)
     return None
 
 def _make_id(day: dt.date, venue: str, title: str) -> str:
-    slug = re.sub(r"[^a-z0-9]+", "-", _clean(title).lower()).strip("-")
-    vslug = re.sub(r"[^a-z0-9]+", "-", _clean(venue).lower()).strip("-")
+    slug = re.sub(r"[^a-z0-9]+","-", _clean(title).lower()).strip("-")
+    vslug = re.sub(r"[^a-z0-9]+","-", _clean(venue).lower()).strip("-")
     return f"lnsb-{day.isoformat()}-{vslug or 'venue'}-{slug or 'event'}"
 
 def lnsb_fetch() -> List[Dict]:
     today = dt.date.today()
-
     html = _fetch_html(SITE)
-    if not html:
-        return []
-    (DEBUG_DIR / "index.html").write_text(html, encoding="utf-8")
+    if not html: return []
+    (DEBUG_DIR/"index.html").write_text(html, encoding="utf-8")
 
     soup = BeautifulSoup(html, "html.parser")
     main = soup.select_one("main") or soup
     text = _clean(main.get_text("\n", strip=True))
-
     context_day = _pick_date_context(text, today)
 
-    # Build candidate segments two ways, then unify
     bullet_segments = _segment_bullets(text)
-    triple_segments = _segment_triples(text)
 
-    # Try to parse bullet segments into (venue, title, time_text)
-    extracted: List[Tuple[str, str, str]] = []
+    extracted: List[Tuple[str,str,str]] = []
     for seg in bullet_segments:
         got = _extract_from_segment(seg)
         if got:
             extracted.append(got)
-    # Add inline triples too
-    extracted.extend(triple_segments)
 
     # Debug dump
-    with (DEBUG_DIR / "segments.txt").open("w", encoding="utf-8") as f:
+    with (DEBUG_DIR/"segments.txt").open("w", encoding="utf-8") as f:
         for v, t, tm in extracted:
             f.write(f"{v} | {t} | {tm}\n")
 
@@ -196,20 +151,16 @@ def lnsb_fetch() -> List[Dict]:
     seen = set()
 
     for venue, title, time_text in extracted:
-        venue = _clean(venue)
-        title = _clean(title)
-        if not venue or venue.lower() in BLACKLIST_TITLES or _is_region_header(venue): 
-            continue
-        if not title: 
-            continue
+        venue = _clean(venue); title = _clean(title)
+        if not venue or venue.lower() in BLACKLIST_TITLES or _is_region_header(venue): continue
+        if not title: continue
 
-        start_time = _parse_time_range(time_text) or dt.time(19, 0)
+        start_time = _parse_time_range(time_text) or dt.time(19,0)
         start_iso = dt.datetime.combine(context_day, start_time).replace(microsecond=0).isoformat()
         start_iso += ("-07:00" if 3 <= context_day.month <= 11 else "-08:00")
 
         eid = _make_id(context_day, venue, title)
-        if eid in seen:
-            continue
+        if eid in seen: continue
         seen.add(eid)
 
         ev = {
@@ -226,11 +177,10 @@ def lnsb_fetch() -> List[Dict]:
         if vinfo.get("zip"):     ev["zip"] = vinfo["zip"]
         if vinfo.get("city"):    ev["city"] = vinfo["city"]
 
-        # Future-only (allow same-day)
+        # future-only (allow same-day)
         try:
-            dt_start = dt.datetime.fromisoformat(start_iso.replace("Z", "+00:00"))
-            if dt_start < dt.datetime.now() - dt.timedelta(days=1):
-                continue
+            when = dt.datetime.fromisoformat(start_iso.replace("Z","+00:00"))
+            if when < dt.datetime.now() - dt.timedelta(days=1): continue
         except Exception:
             pass
 
@@ -238,14 +188,13 @@ def lnsb_fetch() -> List[Dict]:
 
     # Sort
     def _k(e):
-        try:
-            return dt.datetime.fromisoformat(e["start"].replace("Z","+00:00"))
-        except Exception:
-            return dt.datetime.max
+        try: return dt.datetime.fromisoformat(e["start"].replace("Z","+00:00"))
+        except Exception: return dt.datetime.max
     events.sort(key=_k)
 
-    # Quick preview
-    preview = "\n".join(f"{e['start']} | {e.get('venue_name','?')} | {e['title']}" for e in events[:20])
-    (DEBUG_DIR / "preview.txt").write_text(preview, encoding="utf-8")
-
+    # Preview
+    (DEBUG_DIR/"preview.txt").write_text(
+        "\n".join(f"{e['start']} | {e.get('venue_name','?')} | {e['title']}" for e in events[:30]),
+        encoding="utf-8"
+    )
     return events
