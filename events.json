@@ -1,290 +1,266 @@
 [
   {
-    "id": "lnsb-2025-08-06-brick-barn-wine-estate-adrian-galysh-rock-blues",
-    "title": "Adrian Galysh (rock, blues)",
-    "category": "Music",
-    "start": "2025-08-06T16:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Brick Barn Wine Estate"
-  },
-  {
-    "id": "lnsb-2025-08-06-alisal-river-grill-alisal-ranch-lindsey-marie-singer-songwriter-indie-pop",
-    "title": "Lindsey Marie (singer/songwriter, indie pop)",
-    "category": "Music",
-    "start": "2025-08-06T16:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Alisal River Grill/ Alisal Ranch"
-  },
-  {
-    "id": "lnsb-2025-08-06-corks-crowns-dan-zimmerman-blues-jazz",
-    "title": "Dan Zimmerman (blues, jazz)",
-    "category": "Music",
-    "start": "2025-08-06T17:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Corks & Crowns"
-  },
-  {
-    "id": "lnsb-2025-08-06-the-red-piano-jason-libs-classic-hits",
-    "title": "Jason Libs (classic hits)",
-    "category": "Music",
-    "start": "2025-08-06T17:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "The Red Piano",
-    "address": "519 State St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-corks-crowns-al-vafa-blues-jazz-soul",
+    "source": "LiveNotesSB",
     "title": "Al Vafa (blues, jazz, soul)",
-    "category": "Music",
-    "start": "2025-08-06T17:00:00-07:00",
+    "venue_name": "Corks & Crowns",
+    "address": "",
     "city": "Santa Barbara",
-    "venue_name": "Corks & Crowns"
+    "zip": "",
+    "start": "2025-08-08T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
   },
   {
-    "id": "lnsb-2025-08-06-800-block-of-state-street-first-thursday-hosted-by-downtown-sb",
-    "title": "First Thursday Hosted by Downtown SB",
-    "category": "Music",
-    "start": "2025-08-06T17:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "800 Block of State Street"
-  },
-  {
-    "id": "lnsb-2025-08-06-brothers-red-barn-jeff-pine-rock",
-    "title": "Jeff Pine (rock)",
-    "category": "Music",
-    "start": "2025-08-06T17:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Brothers Red Barn"
-  },
-  {
-    "id": "lnsb-2025-08-06-corktree-cellars-vinny-berry-rock-blues",
-    "title": "Vinny Berry (rock, blues)",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Carpinteria",
-    "venue_name": "Corktree Cellars",
-    "address": "4193 Carpinteria Ave, Carpinteria, CA",
-    "zip": "93013"
-  },
-  {
-    "id": "lnsb-2025-08-06-harbor-restaurant-the-george-mamalakis-trio-instrumental-jazz-standards",
-    "title": "The George Mamalakis Trio (instrumental jazz standards)",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Harbor Restaurant"
-  },
-  {
-    "id": "lnsb-2025-08-06-the-blue-owl-the-rat-pack-showcase-and-open-mic",
-    "title": "The Rat Pack Showcase and Open Mic",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "The Blue Owl"
-  },
-  {
-    "id": "lnsb-2025-08-06-revolver-pizza-sit-in-jam",
-    "title": "Sit-In Jam",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Revolver Pizza"
-  },
-  {
-    "id": "lnsb-2025-08-06-corktree-cellars-kyle-brown-country",
-    "title": "Kyle Brown (country)",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Carpinteria",
-    "venue_name": "Corktree Cellars",
-    "address": "4193 Carpinteria Ave, Carpinteria, CA",
-    "zip": "93013"
-  },
-  {
-    "id": "lnsb-2025-08-06-ith-santa-barbara-beach-hostel-open-mic-night",
-    "title": "Open Mic Night",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "ITH Santa Barbara Beach Hostel",
-    "address": "134 Chapala St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-anchor-rose-david-segall-singer-songwriter-rock-reggae-soul",
-    "title": "David Segall (singer/songwriter, rock, reggae, soul)",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Anchor Rose",
-    "address": "113 Harbor Way, Santa Barbara, CA",
-    "zip": "93109"
-  },
-  {
-    "id": "lnsb-2025-08-06-villa-wine-bar-kitchen-cainan-birchim-pianist",
-    "title": "Cainan Birchim (pianist)",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Villa Wine Bar & Kitchen",
-    "address": "618 Anacapa St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-satellite-brett-hunter-band-pop-soul-r-b",
-    "title": "Brett Hunter Band (pop, soul, r&b)",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Satellite",
-    "address": "1117 State St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-the-good-lion-santa-barbara-jazz-collective-jazz",
-    "title": "Santa Barbara Jazz Collective (jazz)",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "The Good Lion",
-    "address": "1212 State St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-el-encanto-a-belmond-hotel-gin-and-jazz-thursday",
-    "title": "Gin and Jazz Thursday",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "El Encanto, a Belmond Hotel"
-  },
-  {
-    "id": "lnsb-2025-08-06-the-v-lounge-at-vinland-hotel",
-    "title": "at Vinland Hotel",
-    "category": "Music",
-    "start": "2025-08-06T18:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "The V Lounge"
-  },
-  {
-    "id": "lnsb-2025-08-06-lion-s-tale-at-the-montecito-inn-santa-barbara-jazz-collective-with-jon-harris-jazz",
-    "title": "Santa Barbara Jazz Collective with Jon Harris (jazz)",
-    "category": "Music",
-    "start": "2025-08-06T18:30:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Lion’s Tale (at the Montecito Inn )"
-  },
-  {
-    "id": "lnsb-2025-08-06-reef-run-heads-all-happy-hour-grateful-dead-tribute-rock-psychedelic-rock",
-    "title": "Heads All Happy Hour (Grateful Dead Tribute)(rock, psychedelic rock)",
-    "category": "Music",
-    "start": "2025-08-06T19:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Reef & Run",
-    "address": "Cabrillo Blvd, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-validation-ale-definitely-maybe-classic-rock-pop",
-    "title": "Definitely Maybe (classic rock/pop)",
-    "category": "Music",
-    "start": "2025-08-06T19:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Validation Ale",
-    "address": "102 E Yanonali St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-institution-ale-solomon-king-blues-rock-americana",
-    "title": "Solomon King (blues, rock, americana)",
-    "category": "Music",
-    "start": "2025-08-06T19:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Institution Ale",
-    "address": "516 State St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-the-leta-hotel-will-breman-singer-songwriter-alt-pop-rock",
-    "title": "Will Breman (singer/songwriter, alt pop rock)",
-    "category": "Music",
-    "start": "2025-08-06T19:00:00-07:00",
-    "city": "Goleta",
-    "venue_name": "The Leta Hotel",
-    "address": "5650 Calle Real, Goleta, CA",
-    "zip": "93117"
-  },
-  {
-    "id": "lnsb-2025-08-06-slodoco-open-mic-night",
-    "title": "Open Mic Night",
-    "category": "Music",
-    "start": "2025-08-06T19:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "SloDoCo"
-  },
-  {
-    "id": "lnsb-2025-08-06-the-red-piano-ivy-alex-pianist-entertainer",
-    "title": "Ivy Alex (pianist, entertainer)",
-    "category": "Music",
-    "start": "2025-08-06T20:00:00-07:00",
-    "city": "Santa Barbara",
+    "source": "LiveNotesSB",
+    "title": "Jason Libs (classic hits)",
     "venue_name": "The Red Piano",
-    "address": "519 State St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-lost-chord-guitars-adam-zelkind-singer-songwriter",
-    "title": "Adam Zelkind (singer/songwriter)",
-    "category": "Music",
-    "start": "2025-08-06T20:00:00-07:00",
+    "address": "",
     "city": "Santa Barbara",
-    "venue_name": "Lost Chord Guitars",
-    "address": "157 E De La Guerra St, Santa Barbara, CA",
-    "zip": "93101"
+    "zip": "",
+    "start": "2025-08-08T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
   },
   {
-    "id": "lnsb-2025-08-06-soho-black-party-soul-r-b-with-special-guest-claire-brooks-r-b-pop",
-    "title": "Black Party (soul, r&b) with special guest Claire Brooks (r&b, pop)",
-    "category": "Music",
-    "start": "2025-08-06T20:00:00-07:00",
+    "source": "LiveNotesSB",
+    "title": "Marika and The Ohms (classic/modern rock/pop)",
+    "venue_name": "Downtown SB",
+    "address": "",
     "city": "Santa Barbara",
-    "venue_name": "Soho"
+    "zip": "",
+    "start": "2025-08-08T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
   },
   {
-    "id": "lnsb-2025-08-06-maverick-saloon-open-mic-night",
+    "source": "LiveNotesSB",
+    "title": "Jeff Pine (rock)",
+    "venue_name": "Brothers Red Barn",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Kyle Brown (country)",
+    "venue_name": "Corktree Cellars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Open Mic Night",
-    "category": "Music",
-    "start": "2025-08-06T20:00:00-07:00",
-    "city": "Santa Ynez",
+    "venue_name": "ITH Santa Barbara Beach Hostel",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "David Segall (singer/songwriter, rock, reggae, soul)",
+    "venue_name": "Anchor Rose",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Cainan Birchim (pianist)",
+    "venue_name": "Villa Wine Bar & Kitchen",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Brett Hunter Band (pop, soul, r&b)",
+    "venue_name": "Satellite",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Santa Barbara Jazz Collective (jazz)",
+    "venue_name": "The Good Lion",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The Lola Bard Trio (jazz)",
+    "venue_name": "Gin and Jazz Thursday",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Adrian Galysh (rock, blues)",
+    "venue_name": "Vinland Hotel",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Heads All Happy Hour (Grateful Dead Tribute)(rock, psychedelic rock)",
+    "venue_name": "Reef & Run",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Definitely Maybe (classic rock/pop)",
+    "venue_name": "Validation Ale",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Solomon King (blues, rock, americana)",
+    "venue_name": "Institution Ale",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Will Breman (singer/songwriter, alt pop rock)",
+    "venue_name": "The Leta Hotel",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night",
+    "venue_name": "SloDoCo",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "4",
+    "venue_name": "(singer/songwriter, indie pop)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Ivy Alex (pianist, entertainer)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Black Party (soul, r&b) with special guest Claire Brooks (r&b, pop)",
+    "venue_name": "Soho",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night",
     "venue_name": "Maverick Saloon",
-    "address": "3687 Sagunto St, Santa Ynez, CA",
-    "zip": "93460"
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
   },
   {
-    "id": "lnsb-2025-08-06-lost-chord-guitars-ladies-songwriter-in-the-round-robbie-kaye-toni-land-emily-zuzik-and-arwen-lewis-singer-songwriter",
+    "source": "LiveNotesSB",
     "title": "Ladies Songwriter In The Round: Robbie Kaye , Toni Land , Emily Zuzik , and Arwen Lewis (singer/songwriter)",
-    "category": "Music",
-    "start": "2025-08-06T20:00:00-07:00",
-    "city": "Santa Barbara",
     "venue_name": "Lost Chord Guitars",
-    "address": "157 E De La Guerra St, Santa Barbara, CA",
-    "zip": "93101"
-  },
-  {
-    "id": "lnsb-2025-08-06-soho-jimi-hendrix-night-featuring-the-jackson-gillies-experience-and-the-805-blues-collective-rock-psychedelic-rock",
-    "title": "Jimi Hendrix Night featuring The Jackson Gillies Experience and The 805 Blues Collective (rock, psychedelic rock)",
-    "category": "Music",
-    "start": "2025-08-06T20:30:00-07:00",
+    "address": "",
     "city": "Santa Barbara",
-    "venue_name": "Soho"
-  },
-  {
-    "id": "lnsb-2025-08-06-sandbar-will-stephens-and-the-essentials-funk-soul-hip-hop-rock-blues",
-    "title": "Will Stephens and The Essentials (funk, soul, hip-hop, rock, blues)",
-    "category": "Music",
-    "start": "2025-08-06T21:00:00-07:00",
-    "city": "Santa Barbara",
-    "venue_name": "Sandbar"
+    "zip": "",
+    "start": "2025-08-08T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
   }
 ]
