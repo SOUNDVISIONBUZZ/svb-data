@@ -1,3 +1,5 @@
+cd ~/Documents/GitHub/svb-data
+cat > sources/lnsb_fetch.py <<'PY'
 # sources/lnsb_fetch.py
 # LiveNotesSB scraper (strict bullet-only parser).
 # Accepts ONLY bullets that look like: "Venue - Title - 6-9 pm".
@@ -96,9 +98,9 @@ def _segment_bullets(text: str) -> List[str]:
         if p.lower() in BLACKLIST_TITLES: continue
         if _is_region_header(p): continue
         if "iOS App Android App" in p: p = p.replace("iOS App Android App","").strip(" -")
-        # reject multi-bullet mergers & loose fragments
-        if " * " in p: continue
-        if p.count(" - ") < 2: continue           # MUST be "Venue - Title - Time"
+        # reject multi-bullet mergers & fragments
+        if "*" in p: continue                 # any residual '*' means merged bullets
+        if p.count(" - ") < 2: continue       # MUST be "Venue - Title - Time"
         segs.append(p)
     return segs
 
@@ -107,7 +109,6 @@ def _extract_from_segment(seg: str) -> Optional[Tuple[str,str,str]]:
     parts = [s.strip() for s in seg.split(" - ")]
     if len(parts) < 3 or _is_region_header(parts[0]): return None
     venue = parts[0]
-    # title = first non-time after venue
     title = next((c for c in parts[1:] if not TIME_TOKEN_RE.search(c)), parts[1])
     time_text = next((c for c in reversed(parts) if TIME_TOKEN_RE.search(c)), "")
     if venue and title and time_text: return (venue, title, time_text)
@@ -152,6 +153,7 @@ def lnsb_fetch() -> List[Dict]:
 
         start_time = _parse_time_range(time_text) or dt.time(19, 0)
         start_iso = dt.datetime.combine(context_day, start_time).replace(microsecond=0).isoformat()
+        # static Pacific offset
         start_iso += ("-07:00" if 3 <= context_day.month <= 11 else "-08:00")
 
         eid = _make_id(context_day, venue, title)
@@ -192,3 +194,4 @@ def lnsb_fetch() -> List[Dict]:
         encoding="utf-8"
     )
     return events
+PY
