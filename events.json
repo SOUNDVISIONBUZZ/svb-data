@@ -1,7 +1,19 @@
 [
   {
     "source": "LiveNotesSB",
-    "title": "Al Vafa (blues, jazz, soul)",
+    "title": "Adrian Galysh (rock, blues)",
+    "venue_name": "Brick Barn Wine Estate",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Dan Zimmerman (blues, jazz)",
     "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
@@ -15,6 +27,30 @@
     "source": "LiveNotesSB",
     "title": "Jason Libs (classic hits)",
     "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Ghost\\Monster (rock, country)",
+    "venue_name": "Music In The Park Summer Series",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Al Vafa (blues, jazz, soul)",
+    "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -43,6 +79,66 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-08T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Italian Night",
+    "venue_name": "Jon and Nicole (accordion and violin)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T17:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Vinny Berry (rock, blues)",
+    "venue_name": "Corktree Cellars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The George Mamalakis Trio (instrumental jazz standards)",
+    "venue_name": "Harbor Restaurant",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Hosted by Brandon Kinalele",
+    "venue_name": "The Rat Pack Showcase and Open Mic",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "In Jam",
+    "venue_name": "Sit",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -229,6 +325,18 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Adam Zelkind (singer/songwriter)",
+    "venue_name": "Lost Chord Guitars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Black Party (soul, r&b) with special guest Claire Brooks (r&b, pop)",
     "venue_name": "Soho",
     "address": "",
@@ -259,6 +367,42 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-08T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jimi Hendrix Night featuring The Jackson Gillies Experience and The 805 Blues Collective (rock, psychedelic rock)",
+    "venue_name": "Soho",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T20:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6:30",
+    "venue_name": "(jazz)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T21:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "hop, rock, blues)",
+    "venue_name": "(funk, soul, hip",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-08T21:00:00-07:00",
     "tags": [
       "music"
     ]
