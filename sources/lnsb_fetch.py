@@ -1,7 +1,7 @@
 # sources/lnsb_fetch.py
 # LiveNotesSB scraper: parse homepage bullets only (no Selenium/JSON-LD).
-# - Splits the big lineup into bullet segments.
-# - Extracts "Venue - Title - time" from each bullet only (no global triples).
+# - Splits the big lineup into bullet segments that actually start with a bullet.
+# - Extracts "Venue - Title - time" from each bullet.
 # - Filters region headers / junk, enriches from data/venues_sb.json.
 # - Writes tmp_lnsb/index.html, segments.txt, preview.txt for debugging.
 
@@ -16,7 +16,8 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://livenotessb.com"
 VENUE_REG = ROOT / "data" / "venues_sb.json"
-DEBUG_DIR = ROOT / "tmp_lnsb"; DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+DEBUG_DIR = ROOT / "tmp_lnsb"
+DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 
 MONTHS = r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)"
 DATE_RE = re.compile(rf"\b{MONTHS}\s+\d{{1,2}}(?:,\s*\d{{2,4}})?\b", re.I)
@@ -36,7 +37,8 @@ def _clean(s: Optional[str]) -> str:
 def _fetch_html(url: str) -> Optional[str]:
     try:
         r = requests.get(url, timeout=20, headers={"User-Agent":"Mozilla/5.0 (SVB/1.0)"})
-        if r.status_code == 200 and r.text: return r.text
+        if r.status_code == 200 and r.text:
+            return r.text
         print(f"LNSB fetch {r.status_code} {url}")
     except Exception as e:
         print(f"LNSB fetch error: {e}")
@@ -72,10 +74,12 @@ def _parse_time_range(tstr: str) -> Optional[dt.time]:
     h1 = int(m.group("h1")); m1 = int(m.group("m1") or 0)
     ap1 = (m.group("ap1") or "").lower()
     ap2 = (m.group("ap2") or "").lower()
-    if not ap1: ap1 = ap2 or ("pm" if 4 <= h1 <= 11 else "am")
+    if not ap1:
+        ap1 = ap2 or ("pm" if 4 <= h1 <= 11 else "am")
     if ap1 == "pm" and h1 < 12: h1 += 12
     if ap1 == "am" and h1 == 12: h1 = 0
-    if 0 <= h1 <= 23 and 0 <= m1 <= 59: return dt.time(h1, m1)
+    if 0 <= h1 <= 23 and 0 <= m1 <= 59:
+        return dt.time(h1, m1)
     return None
 
 def _is_region_header(s: str) -> bool:
@@ -83,19 +87,22 @@ def _is_region_header(s: str) -> bool:
     return any(ss.startswith(h) for h in REGION_HEADERS)
 
 def _segment_bullets(text: str) -> List[str]:
-    # Insert line breaks before stars/bullets, then split
-    text = re.sub(r"\s\*\s+","\n* ",text)
-    text = re.sub(r"\s•\s+","\n* ",text)
+    # Insert line breaks before stars/bullets, then split.
+    text = re.sub(r"\s\*\s+","\n* ", text)
+    text = re.sub(r"\s•\s+","\n* ", text)
     parts = re.split(r"(?:^|\n)\*\s+", text)
+
     segs = []
-    for p in parts:
+    for p in parts[1:]:  # <-- skip preamble before the first bullet
         p = _clean(p)
         if not p: continue
         if p.lower() in BLACKLIST_TITLES: continue
         if _is_region_header(p): continue
         # drop global tails and stray time-leading fragments
-        if "iOS App Android App" in p: p = p.replace("iOS App Android App","").strip(" -")
-        if re.match(r"^\d{1,2}(:\d{2})?\s*(am|pm)\b", p, re.I): continue
+        if "iOS App Android App" in p:
+            p = p.replace("iOS App Android App","").strip(" -")
+        if re.match(r"^\d{1,2}(:\d{2})?\s*(am|pm)\b", p, re.I):
+            continue
         segs.append(p)
     return segs
 
@@ -107,14 +114,16 @@ def _extract_from_segment(seg: str) -> Optional[Tuple[str,str,str]]:
         # first non-time chunk after the venue is title
         title = next((c for c in parts[1:] if not TIME_TOKEN_RE.search(c)), parts[1])
         time_text = next((c for c in reversed(parts) if TIME_TOKEN_RE.search(c)), "")
-        if venue and title and time_text: return (venue, title, time_text)
+        if venue and title and time_text:
+            return (venue, title, time_text)
     # fallback: find a time and split around it
     m = TIME_TOKEN_RE.search(seg)
     if m:
         before, after = seg[:m.start()].strip(" -"), seg[m.start():].strip()
         sub = before.split(" - ", 1)
         venue, title = (sub[0], sub[1]) if len(sub)==2 else (before, before)
-        if not _is_region_header(venue) and venue and title: return (venue, title, after)
+        if not _is_region_header(venue) and venue and title:
+            return (venue, title, after)
     return None
 
 def _make_id(day: dt.date, venue: str, title: str) -> str:
@@ -155,8 +164,13 @@ def lnsb_fetch() -> List[Dict]:
         if not venue or venue.lower() in BLACKLIST_TITLES or _is_region_header(venue): continue
         if not title: continue
 
-        start_time = _parse_time_range(time_text) or dt.time(19,0)
-        start_iso = dt.datetime.combine(context_day, start_time).replace(microsecond=0).isoformat()
+        start_time = _parse_time_range(time_text) or dt.time(19, 0)
+        start_iso = (
+            dt.datetime.combine(context_day, start_time)
+            .replace(microsecond=0)
+            .isoformat()
+        )
+        # add static tz offset (Pacific)
         start_iso += ("-07:00" if 3 <= context_day.month <= 11 else "-08:00")
 
         eid = _make_id(context_day, venue, title)
