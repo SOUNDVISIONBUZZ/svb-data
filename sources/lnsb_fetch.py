@@ -1,93 +1,158 @@
-# sources/lnsb_fetch.py
+#!/usr/bin/env python3
 """
-Scraper for LiveNotesSB front page.
-No Selenium; suitable for GitHub Actions.
+Enhanced build script for Santa Barbara events data.
+Combines LiveNotesSB events with sample events and handles formatting.
 """
 
-from __future__ import annotations
-import datetime as dt, re, requests
-from bs4 import BeautifulSoup
+import json
+import datetime as dt
+from pathlib import Path
+from typing import Dict, List, Any
 
-SITE = "https://livenotessb.com"
+# Import the scraper
+try:
+    from sources.lnsb_fetch import lnsb_fetch
+except ImportError:
+    print("Warning: Could not import lnsb_fetch. Using sample events only.")
+    def lnsb_fetch():
+        return []
 
-def _iso(d: dt.datetime, tz="-07:00") -> str:
-    return d.isoformat() + tz
+def load_sample_events() -> List[Dict[str, Any]]:
+    """Load sample events as fallback."""
+    return [
+        {
+            "id": "sb001",
+            "title": "Summer Nights Concert: Spencer the Gardener",
+            "category": "Music",
+            "genre": "Rock",
+            "city": "Santa Barbara",
+            "zip": "93101",
+            "start": "2025-08-01T18:00:00-07:00",
+            "end": "2025-08-01T20:00:00-07:00",
+            "venue": "SB County Courthouse Sunken Gardens",
+            "address": "1100 Anacapa St, Santa Barbara, CA 93101",
+            "popularity": 98
+        },
+        {
+            "id": "sb002",
+            "title": "Downtown Friday Night Concert",
+            "category": "Music",
+            "genre": "Folk",
+            "city": "Santa Barbara",
+            "zip": "93101",
+            "start": "2025-08-08T19:00:00-07:00",
+            "end": "2025-08-08T21:00:00-07:00",
+            "venue": "Paseo Nuevo",
+            "address": "651 Paseo Nuevo, Santa Barbara, CA 93101",
+            "popularity": 85
+        },
+        {
+            "id": "sb003",
+            "title": "Jazz at the Bowl",
+            "category": "Music",
+            "genre": "Jazz",
+            "city": "Santa Barbara",
+            "zip": "93103",
+            "start": "2025-08-15T20:00:00-07:00",
+            "end": "2025-08-15T22:30:00-07:00",
+            "venue": "Santa Barbara Bowl",
+            "address": "1122 N Milpas St, Santa Barbara, CA 93103",
+            "popularity": 92
+        }
+    ]
 
-def _make_id(day: dt.date, venue: str, artist: str) -> str:
-    stem = f"{day:%Y%m%d}-{venue[:10]}-{artist[:10]}"
-    return "lnsb-" + re.sub(r"[^a-z0-9]+", "-", stem.lower()).strip("-")
+def validate_event(event: Dict[str, Any]) -> bool:
+    """Validate that an event has all required fields."""
+    required_fields = ["id", "title", "category", "genre", "city", "zip", 
+                      "start", "end", "venue", "address", "popularity"]
+    
+    for field in required_fields:
+        if field not in event:
+            print(f"Warning: Event {event.get('id', 'unknown')} missing field: {field}")
+            return False
+    
+    return True
 
-HDR_RE = re.compile(r"^[A-Z][a-z]+day\s+–\s+\w+\s+\d{1,2}", re.I)  # e.g. "TUESDAY – August 5"
+def sort_events_by_date(events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Sort events by start date."""
+    try:
+        return sorted(events, key=lambda x: dt.datetime.fromisoformat(x['start'].replace('Z', '+00:00')))
+    except Exception as e:
+        print(f"Warning: Could not sort events by date: {e}")
+        return events
 
-def lnsb_fetch(city_filter: str | None = None) -> list[dict]:
-    print("• LiveNotesSB fetch")
-    html = requests.get(SITE, headers={"User-Agent": "Mozilla/5.0"}, timeout=30).text
-    soup = BeautifulSoup(html, "html.parser")
+def main():
+    """Main build function."""
+    print("Building Santa Barbara events data...")
+    
+    # Fetch LiveNotesSB events
+    print("Fetching LiveNotesSB events...")
+    lnsb_events = lnsb_fetch()
+    print(f"Found {len(lnsb_events)} LiveNotesSB events")
+    
+    # Load sample events as backup
+    sample_events = load_sample_events()
+    print(f"Loaded {len(sample_events)} sample events")
+    
+    # Combine all events
+    all_events = []
+    
+    # Add valid LiveNotesSB events
+    for event in lnsb_events:
+        if validate_event(event):
+            all_events.append(event)
+    
+    # Add sample events
+    for event in sample_events:
+        if validate_event(event):
+            all_events.append(event)
+    
+    # Sort events by date
+    all_events = sort_events_by_date(all_events)
+    
+    # Create final data structure
+    events_data = {
+        "generated": dt.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "total_events": len(all_events),
+        "sources": {
+            "livenotessb": len(lnsb_events),
+            "samples": len(sample_events)
+        },
+        "events": all_events
+    }
+    
+    # Write to events.json
+    output_path = Path("events.json")
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(events_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Successfully built events.json with {len(all_events)} events")
+    print(f"   - LiveNotesSB events: {len(lnsb_events)}")
+    print(f"   - Sample events: {len(sample_events)}")
+    
+    # Show first few events for verification
+    print("\n📋 First 3 events:")
+    for i, event in enumerate(all_events[:3], 1):
+        print(f"{i}. {event['title']} at {event['venue']}")
+        print(f"   📍 {event['address']}")
+        print(f"   🕐 {event['start']}")
+    
+    # Copy to iOS app locations
+    ios_paths = [
+        Path.home() / "Desktop/sound_vision_buzz_app/events.json",
+        Path.home() / "Desktop/SOUND VISION BUZZ/events.json"
+    ]
+    
+    for ios_path in ios_paths:
+        if ios_path.parent.exists():
+            try:
+                import shutil
+                shutil.copy2(output_path, ios_path)
+                print(f"✅ Copied to {ios_path}")
+            except Exception as e:
+                print(f"❌ Failed to copy to {ios_path}: {e}")
+        else:
+            print(f"⚠️  iOS app directory not found: {ios_path.parent}")
 
-    events: list[dict] = []
-    this_year = dt.date.today().year
-
-    for h4 in soup.find_all("h4"):
-        hdr = h4.get_text(" ", strip=True).replace("\xa0", " ")
-        if not HDR_RE.search(hdr):
-            continue
-
-        # hdr like "TUESDAY – August 5"
-        _, _, when = hdr.partition("–")
-        when = when.strip()
-        try:
-            day = dt.datetime.strptime(f"{when} {this_year}", "%B %d %Y").date()
-        except ValueError:
-            continue
-
-        ptr = h4.find_next_sibling()
-        while ptr and ptr.name == "p":
-            txt = ptr.get_text(" ", strip=True)
-
-            # Capture: venue — artist — time (supports 5-8 pm, 7 pm, 8 pm-12 am, etc.)
-            m = re.search(
-                r"^[\*\-]?\s*([^–-]+?)\s*[-–]\s*([^–-]+?)\s*[-–]\s*(\d{1,2})(?::(\d{2}))?\s*([ap]m)"
-                r"(?:\s*[-–]\s*(\d{1,2})(?::(\d{2}))?\s*([ap]m))?",
-                txt, re.I
-            )
-            if not m:
-                ptr = ptr.find_next_sibling()
-                continue
-
-            venue, artist, h1, m1, ap1, h2, m2, ap2 = m.groups()
-            venue = venue.strip()
-            artist = artist.strip()
-
-            m1 = m1 or "00"
-            h1_i = int(h1) % 12 + (12 if ap1 and ap1.lower() == "pm" else 0)
-            start_dt = dt.datetime.combine(day, dt.time(h1_i, int(m1)))
-
-            end_dt = start_dt + dt.timedelta(hours=2)
-            if h2 and ap2:
-                m2 = m2 or "00"
-                h2_i = int(h2) % 12 + (12 if ap2.lower() == "pm" else 0)
-                end_dt = dt.datetime.combine(day, dt.time(h2_i, int(m2)))
-
-            city = "Santa Barbara"
-            if city_filter and city_filter.lower() not in city.lower():
-                ptr = ptr.find_next_sibling()
-                continue
-
-            events.append({
-                "id": _make_id(day, venue, artist),
-                "title": f"{venue}: {artist}",
-                "category": "Music",
-                "genre": "",
-                "city": city,
-                "zip": "",
-                "start": _iso(start_dt),
-                "end": _iso(end_dt),
-                "venue": venue,
-                "address": "",
-                "popularity": 50,
-            })
-
-            ptr = ptr.find_next_sibling()
-
-    print(f"  ↳ {len(events)} LiveNotesSB events")
-    return events
+if __name__ == "__main__":
+    main()
