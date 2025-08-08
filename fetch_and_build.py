@@ -1,24 +1,19 @@
 # fetch_and_build.py
-# Builds events.json by calling sources.lnsb_fetch.lnsb_fetch()
-# Writes debug info and copies events.json to iOS folders if present.
-
 import argparse
 import json
 import shutil
 from pathlib import Path
-
 from sources.lnsb_fetch import lnsb_fetch
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "events.json"
-
 IOS_COPY_1 = Path.home() / "Desktop" / "sound_vision_buzz_app" / "events.json"
 IOS_COPY_2 = Path.home() / "Desktop" / "SOUND VISION BUZZ" / "events.json"
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--allow-empty", action="store_true", help="Write even if no events.")
-    ap.add_argument("--debug", action="store_true", help="Verbose logs.")
+    ap.add_argument("--allow-empty", action="store_true")
+    ap.add_argument("--debug", action="store_true")
     args = ap.parse_args()
 
     if args.debug:
@@ -36,7 +31,6 @@ def main() -> int:
         print("ERROR: No events found. Refusing to write sample/empty output.")
         return 2
 
-    # Write events.json
     OUT.write_text(json.dumps(events, indent=2), encoding="utf-8")
 
     if args.debug:
@@ -45,7 +39,6 @@ def main() -> int:
             venue = e.get("venue_name") or e.get("venueName") or "?"
             print(f"{i}. {e['title']}\n   📍 {venue}\n   🕐 {e['start']}")
 
-    # Copy to iOS project folders if they exist
     for dest in (IOS_COPY_1, IOS_COPY_2):
         try:
             dest.parent.mkdir(parents=True, exist_ok=True)
@@ -53,7 +46,6 @@ def main() -> int:
             if args.debug:
                 print(f"✅ Copied to {dest}")
         except Exception:
-            # Ignore if these paths do not exist
             pass
 
     return 0
