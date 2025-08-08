@@ -1,3 +1,5 @@
+cd ~/Documents/GitHub/svb-data
+cat > sources/lnsb_fetch.py <<'PY'
 # sources/lnsb_fetch.py
 # LiveNotesSB scraper: parse homepage bullets only (no Selenium/JSON-LD).
 # - Splits the big lineup into bullet segments that actually start with a bullet.
@@ -93,12 +95,12 @@ def _segment_bullets(text: str) -> List[str]:
     parts = re.split(r"(?:^|\n)\*\s+", text)
 
     segs = []
-    for p in parts[1:]:  # <-- skip preamble before the first bullet
+    for p in parts[1:]:  # skip preamble before the first bullet
         p = _clean(p)
         if not p: continue
         if p.lower() in BLACKLIST_TITLES: continue
         if _is_region_header(p): continue
-        # drop global tails and stray time-leading fragments
+        # drop site tails and time-leading fragments
         if "iOS App Android App" in p:
             p = p.replace("iOS App Android App","").strip(" -")
         if re.match(r"^\d{1,2}(:\d{2})?\s*(am|pm)\b", p, re.I):
@@ -111,7 +113,6 @@ def _extract_from_segment(seg: str) -> Optional[Tuple[str,str,str]]:
     parts = [s.strip() for s in seg.split(" - ")]
     if len(parts) >= 3 and not _is_region_header(parts[0]):
         venue = parts[0]
-        # first non-time chunk after the venue is title
         title = next((c for c in parts[1:] if not TIME_TOKEN_RE.search(c)), parts[1])
         time_text = next((c for c in reversed(parts) if TIME_TOKEN_RE.search(c)), "")
         if venue and title and time_text:
@@ -212,3 +213,4 @@ def lnsb_fetch() -> List[Dict]:
         encoding="utf-8"
     )
     return events
+PY
