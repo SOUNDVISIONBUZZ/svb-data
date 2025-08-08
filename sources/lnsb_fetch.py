@@ -1,3 +1,4 @@
+cat > sources/lnsb_fetch.py <<'PY'
 # sources/lnsb_fetch.py
 # LiveNotesSB bullet-list scraper with debug outputs.
 # Strategy:
@@ -43,7 +44,6 @@ BLACKLIST_TITLES = {
 }
 
 # Minimal venue registry for addresses (expand later)
-# If not found, we still emit the event without address.
 VENUE_REGISTRY: Dict[str, Dict[str, str]] = {
     "Corktree Cellars": {"address": "910 Linden Ave", "city": "Carpinteria", "zip": "93013"},
     "Corks & Crowns": {"address": "32 Anacapa St", "city": "Santa Barbara", "zip": "93101"},
@@ -85,8 +85,7 @@ def _fetch_html(url: str) -> str:
         name = url.strip("/").split("/")[-1] or "index"
         (DEBUG_DIR / f"{name}.html").write_text(html, encoding="utf-8")
         return html
-    except Exception as ex:
-        # Fallback to any cached copy if present
+    except Exception:
         name = url.strip("/").split("/")[-1] or "index"
         cache = DEBUG_DIR / f"{name}.html"
         if cache.exists():
@@ -95,69 +94,44 @@ def _fetch_html(url: str) -> str:
 
 def _visible_text(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
-    # Drop script/style
     for t in soup(["script", "style", "noscript"]):
         t.extract()
     text = soup.get_text(separator="\n")
-    # Normalize whitespace
     text = re.sub(r"\u00a0", " ", text)  # nbsp
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{2,}", "\n", text)
     return text.strip()
 
 TIME_PATTERNS = [
-    # 6-9 pm, 8 pm-12 am, 7-10 pm
     re.compile(r"\b(\d{1,2})(?::(\d{2}))?\s*-\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", re.I),
-    # single explicit time like "6 pm" or "6:30 pm"
     re.compile(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", re.I),
-    # compact "5-8 pm" -> start is 5 pm
     re.compile(r"\b(\d{1,2})\s*-\s*(\d{1,2})\s*(am|pm)\b", re.I),
 ]
 
 def _parse_time_range(s: str) -> Optional[dt.time]:
     s = _clean(s)
-    # Try "h(:mm)? - h(:mm)? am|pm"
     m = TIME_PATTERNS[0].search(s)
     if m:
-        h = int(m.group(1))
-        mm = int(m.group(2) or 0)
-        ap = m.group(5).lower()
-        if ap == "pm" and h < 12:
-            h += 12
-        if ap == "am" and h == 12:
-            h = 0
+        h = int(m.group(1)); mm = int(m.group(2) or 0); ap = m.group(5).lower()
+        if ap == "pm" and h < 12: h += 12
+        if ap == "am" and h == 12: h = 0
         return dt.time(h, mm)
-    # Try "h(:mm)? am|pm"
     m = TIME_PATTERNS[1].search(s)
     if m:
-        h = int(m.group(1))
-        mm = int(m.group(2) or 0)
-        ap = m.group(3).lower()
-        if ap == "pm" and h < 12:
-            h += 12
-        if ap == "am" and h == 12:
-            h = 0
+        h = int(m.group(1)); mm = int(m.group(2) or 0); ap = m.group(3).lower()
+        if ap == "pm" and h < 12: h += 12
+        if ap == "am" and h == 12: h = 0
         return dt.time(h, mm)
-    # Try "5-8 pm" -> start 5 pm
     m = TIME_PATTERNS[2].search(s)
     if m:
-        h = int(m.group(1))
-        ap = m.group(3).lower()
-        if ap == "pm" and h < 12:
-            h += 12
-        if ap == "am" and h == 12:
-            h = 0
+        h = int(m.group(1)); ap = m.group(3).lower()
+        if ap == "pm" and h < 12: h += 12
+        if ap == "am" and h == 12: h = 0
         return dt.time(h, 0)
     return None
 
 def _segment_bullets(big_text: str) -> List[str]:
-    """
-    LNSB uses long bullet-like runs separated by ' * ' and also by line breaks.
-    Split aggressively, then trim.
-    """
-    # Replace " - " runs that are clearly separators with asterisk separator too
-    txt = big_text.replace(" – ", " - ")  # normalize en-dash to hyphen
-    # Split on " * " and newlines
+    txt = big_text.replace(" – ", " - ")
     parts = []
     for chunk in re.split(r"\s\*\s|\n", txt):
         c = _clean(chunk)
@@ -191,47 +165,37 @@ def _is_region_header(s: str) -> bool:
 def _make_id(day: dt.date, venue: str, title: str) -> str:
     return f"lnsb-{day.isoformat()}-{_slug(venue)[:30]}-{_slug(title)[:40]}"
 
-def _build_event(
-    day: dt.date,
-    venue: str,
-    title: str,
-    start_time: Optional[dt.time],
-) -> Dict:
+def _build_event(day: dt.date, venue: str, title: str, start_time: Optional[dt.time]) -> Dict:
     reg = VENUE_REGISTRY.get(venue, {})
     start = dt.datetime.combine(day, start_time or dt.time(19, 0))
     start_iso = start.isoformat() + "-07:00"
-    ev = {
+    return {
         "id": _make_id(day, venue, title),
         "source": "LiveNotesSB",
         "url": SITE,
         "title": title,
         "venue_name": venue,   # snake_case
-        "venueName": venue,    # camelCase for iOS app
+        "venueName": venue,    # camelCase for iOS
         "address": reg.get("address", ""),
         "city": reg.get("city", "Santa Barbara"),
         "zip": reg.get("zip", ""),
         "start": start_iso,
         "tags": ["music"],
     }
-    return ev
 
 def lnsb_fetch(today: Optional[dt.date] = None) -> List[Dict]:
     day = today or dt.date.today()
 
-    # 1) Fetch HTML (homepage carries the full daily list)
     html = _fetch_html(SITE)
     text = _visible_text(html)
 
-    # 2) Aggressive segmentation and triple extraction
     chunks = _segment_bullets(text)
     triples = _segment_triples(chunks)
 
-    # Write debug: what we parsed out of the wall of text
     with (DEBUG_DIR / "segments.txt").open("w", encoding="utf-8") as f:
         for v, t, tm in triples:
             f.write(f"{v} | {t} | {tm}\n")
 
-    # 3) Transform to structured events
     events: List[Dict] = []
     seen = set()
 
@@ -254,7 +218,6 @@ def lnsb_fetch(today: Optional[dt.date] = None) -> List[Dict]:
         seen.add(key)
         events.append(ev)
 
-    # 4) Sort by start time ASC
     def _k(e: Dict) -> dt.datetime:
         try:
             return dt.datetime.fromisoformat(e["start"].replace("Z", "+00:00"))
@@ -263,11 +226,8 @@ def lnsb_fetch(today: Optional[dt.date] = None) -> List[Dict]:
 
     events.sort(key=_k)
 
-    # 5) Quick preview debug for the first 30
-    preview_lines = [
-        f"{e['start']} | {e.get('venue_name','?')} | {e['title']}"
-        for e in events[:30]
-    ]
+    preview_lines = [f"{e['start']} | {e.get('venue_name','?')} | {e['title']}" for e in events[:30]]
     (DEBUG_DIR / "preview.txt").write_text("\n".join(preview_lines), encoding="utf-8")
 
     return events
+PY
