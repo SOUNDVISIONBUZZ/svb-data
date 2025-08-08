@@ -1,5 +1,6 @@
 # sources/lnsb_fetch.py
-# LiveNotesSB scraper: resilient selectors + heuristic fallback, ASCII only.
+# Strict LiveNotesSB scraper: only /events-style pages, no homepage junk.
+# ASCII-only.
 
 from __future__ import annotations
 
@@ -11,39 +12,36 @@ from typing import List, Dict, Optional
 from urllib.parse import urljoin
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 LOG = logging.getLogger("lnsb")
 LOG.setLevel(logging.INFO)
 
 SITE = "https://livenotessb.com"
 
-# --- time helpers ------------------------------------------------------------
+# ---------- helpers ----------
 
 def _tz_offset(d: dt.datetime) -> str:
-    # crude PDT/PST guess by month: Mar–Nov PDT (-07:00), else PST (-08:00)
     return "-07:00" if 3 <= d.month <= 11 else "-08:00"
 
 def _iso(d: dt.datetime) -> str:
     return d.replace(microsecond=0).isoformat() + _tz_offset(d)
 
-def _clean_text(x: Optional[str]) -> str:
-    if not x:
+def _clean(s: Optional[str]) -> str:
+    if not s:
         return ""
-    x = html.unescape(x)
-    x = x.replace("\xa0", " ").strip()
-    return re.sub(r"\s+", " ", x)
+    s = html.unescape(s).replace("\xa0", " ")
+    return re.sub(r"\s+", " ", s).strip()
 
 def _slug(s: str) -> str:
-    s = _clean_text(s).lower()
+    s = _clean(s).lower()
     s = re.sub(r"[^a-z0-9]+", "-", s)
     s = re.sub(r"-{2,}", "-", s).strip("-")
     return s or "event"
 
 def _parse_date(text: str) -> Optional[dt.date]:
-    text = _clean_text(text)
-    fmts = ["%b %d, %Y", "%B %d, %Y", "%m/%d/%Y", "%Y-%m-%d", "%a, %b %d, %Y"]
-    for fmt in fmts:
+    text = _clean(text)
+    for fmt in ("%b %d, %Y", "%B %d, %Y", "%m/%d/%Y", "%Y-%m-%d", "%a, %b %d, %Y"):
         try:
             return dt.datetime.strptime(text, fmt).date()
         except Exception:
@@ -59,8 +57,8 @@ def _parse_date(text: str) -> Optional[dt.date]:
     return None
 
 def _parse_time(text: str) -> Optional[dt.time]:
-    t = _clean_text(text).lower().replace(".", "")
-    m = re.search(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\b", t)
+    t = _clean(text).lower().replace(".", "")
+    m = re.search(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", t)
     if not m:
         return None
     h = int(m.group(1))
@@ -70,10 +68,8 @@ def _parse_time(text: str) -> Optional[dt.time]:
         h += 12
     if ap == "am" and h == 12:
         h = 0
-    if not ap and h == 24:
-        h = 0
     if 0 <= h <= 23 and 0 <= mm <= 59:
-        return dt.time(hour=h, minute=mm)
+        return dt.time(h, mm)
     return None
 
 def _compose_start(day: Optional[dt.date], time_: Optional[dt.time]) -> Optional[str]:
@@ -82,15 +78,34 @@ def _compose_start(day: Optional[dt.date], time_: Optional[dt.time]) -> Optional
     t = time_ or dt.time(19, 0)  # default 7:00 PM
     return _iso(dt.datetime.combine(day, t))
 
+def _addr_zip(text: str) -> (str, str):
+    text = _clean(text)
+    # try to pull a plausible address and zip
+    mzip = re.search(r"\b(\d{5})(?:-\d{4})?\b", text)
+    zip_code = mzip.group(1) if mzip else ""
+    # crude address capture (street + city/state optional)
+    maddr = re.search(r"\b\d{2,5}\s+[A-Za-z0-9 .'-]+(?:St|Street|Ave|Avenue|Blvd|Boulevard|Rd|Road|Way|Place|Pl|Dr|Drive)\b.*", text)
+    addr = maddr.group(0) if maddr else ""
+    return addr, zip_code
+
+def _bad_title(title: str) -> bool:
+    t = title.strip().lower()
+    if not t or len(t) < 4:
+        return True
+    blacklist = {
+        "skip to content", "home", "about", "contact", "menu",
+        "search", "events", "calendar", "venue", "venues"
+    }
+    return t in blacklist
+
 def _event_dict(day: Optional[dt.date],
                 title: str,
                 venue: Optional[str],
                 address: Optional[str],
-                city: str = "Santa Barbara",
-                zip_code: Optional[str] = None,
-                time_text: Optional[str] = None) -> Optional[Dict]:
-    title = _clean_text(title)
-    if not title or not day:
+                zip_code: Optional[str],
+                time_text: Optional[str]) -> Optional[Dict]:
+    title = _clean(title)
+    if not title or _bad_title(title) or not day:
         return None
     start = _compose_start(day, _parse_time(time_text or ""))
     if not start:
@@ -102,24 +117,23 @@ def _event_dict(day: Optional[dt.date],
         "title": title,
         "category": "Music",
         "start": start,
-        "city": city,
+        "city": "Santa Barbara",
     }
     if venue:
-        ev["venue_name"] = _clean_text(venue)
+        ev["venue_name"] = _clean(venue)
     if address:
-        ev["address"] = _clean_text(address)
+        ev["address"] = _clean(address)
     if zip_code:
-        ev["zip"] = _clean_text(zip_code)
+        ev["zip"] = _clean(zip_code)
     return ev
 
-def _extract_text(el) -> str:
-    if not el:
-        return ""
-    if hasattr(el, "has_attr") and el.has_attr("datetime") and el.get("datetime"):
-        return _clean_text(el.get("datetime"))
-    return _clean_text(el.get_text(" "))
+# ---------- scraping ----------
 
-def _fetch_html(url: str) -> Optional[str]:
+MONTHS = "(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)"
+DATE_RE = re.compile(rf"\b{MONTHS}\s+\d{{1,2}}(?:,\s*\d{{4}})?\b", re.I)
+TIME_RE = re.compile(r"\b\d{1,2}(?::\d{2})?\s*(am|pm)\b", re.I)
+
+def _fetch(url: str) -> Optional[str]:
     try:
         r = requests.get(url, timeout=20, headers={
             "User-Agent": "Mozilla/5.0 (compatible; SVB/1.0; +https://soundvision.buzz)"
@@ -130,145 +144,110 @@ def _fetch_html(url: str) -> Optional[str]:
         LOG.warning("Fetch failed for %s: %s", url, e)
     return None
 
-# --- structured strategies ---------------------------------------------------
-
-def _try_events_calendar(soup: BeautifulSoup) -> List[Dict]:
-    # The Events Calendar (Tribe)
+def _extract_from_cards(soup: BeautifulSoup) -> List[Dict]:
     out: List[Dict] = []
-    cards = soup.select(".tribe-events-calendar-list__event, .tec-event, .tribe-events-calendar-list__event-row")
-    for c in cards:
-        title = _extract_text(c.select_one(".tribe-events-calendar-list__event-title, .tribe-common-h3, .tribe-common-h2, h3, h2, a"))
-        date_el = c.select_one("time[datetime], .tribe-events-c-small-cta__date, .tribe-events-calendar-list__event-date-tag, .tribe-events-date")
-        date_text = _extract_text(date_el)
-        day = None
-        if date_el and date_el.has_attr("datetime"):
-            try:
-                day = dt.datetime.fromisoformat(date_el["datetime"][:10]).date()
-            except Exception:
-                pass
-        if not day:
-            day = _parse_date(date_text)
 
-        time_text = _extract_text(c.select_one("time, .tribe-event-time, .tribe-events-calendar-list__event-time, .tribe-events-time"))
+    # Likely event card containers
+    candidates = soup.select(
+        ".tribe-events-calendar-list__event, .tec-event, "
+        ".mec-event-article, .mec-event-list-item, "
+        "article, li.event, div.event"
+    )
 
-        venue = _extract_text(c.select_one(".tribe-events-venue, .tribe-events-calendar-list__event-venue, .tribe-venue, .venue, .location"))
-        address = _extract_text(c.select_one(".tribe-events-address, .address, .tribe-address"))
+    def txt(el: Optional[Tag]) -> str:
+        return _clean(el.get_text(" ")) if el else ""
 
-        zip_code = ""
-        mzip = re.search(r"\b(\d{5})(?:-\d{4})?\b", address)
-        if mzip:
-            zip_code = mzip.group(1)
+    for card in candidates:
+        text = txt(card)
 
-        ev = _event_dict(day, title or "Live music", venue or None, address or None, "Santa Barbara", zip_code or None, time_text or "")
-        if ev:
-            out.append(ev)
-    return out
-
-def _try_modern_events_calendar(soup: BeautifulSoup) -> List[Dict]:
-    # MEC (Modern Events Calendar)
-    out: List[Dict] = []
-    cards = soup.select(".mec-event-article, .mec-monthly-view-event, .mec-wrap .mec-event-list-item")
-    for c in cards:
-        title = _extract_text(c.select_one(".mec-event-title, h3, h2, a"))
-        date_text = _extract_text(c.select_one(".mec-start-date, .mec-date, time[datetime]"))
-        day = None
-        el = c.select_one("time[datetime]")
-        if el and el.has_attr("datetime"):
-            try:
-                day = dt.datetime.fromisoformat(el["datetime"][:10]).date()
-            except Exception:
-                pass
-        if not day:
-            day = _parse_date(date_text)
-
-        time_text = _extract_text(c.select_one(".mec-time, .mec-event-time, time"))
-        venue = _extract_text(c.select_one(".mec-venue-name, .venue, .location, .mec-address"))
-        address = _extract_text(c.select_one(".mec-address, .address"))
-        zip_code = ""
-        mzip = re.search(r"\b(\d{5})(?:-\d{4})?\b", address)
-        if mzip:
-            zip_code = mzip.group(1)
-
-        ev = _event_dict(day, title or "Live music", venue or None, address or None, "Santa Barbara", zip_code or None, time_text or "")
-        if ev:
-            out.append(ev)
-    return out
-
-# --- heuristic fallback ------------------------------------------------------
-
-MONTHS = "(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)"
-DATE_LINE = re.compile(rf"\b{MONTHS}\s+\d{{1,2}}(?:,\s*\d{{4}})?\b", re.I)
-TIME_LINE = re.compile(r"\b(\d{1,2})(?::\d{2})?\s*(am|pm)\b", re.I)
-
-def _try_heuristic(soup: BeautifulSoup) -> List[Dict]:
-    out: List[Dict] = []
-    # look for blocks that contain a date and a time
-    for blk in soup.find_all(["article", "div", "li", "section"]):
-        txt = _clean_text(blk.get_text(" "))
-        if not (DATE_LINE.search(txt) and TIME_LINE.search(txt)):
+        # Require both a date and a time within the card
+        if not (DATE_RE.search(text) and TIME_RE.search(text)):
             continue
-        # crude guesses
-        title = _clean_text((blk.find(["h3","h2","h1","a"]) or {}).get_text() if blk.find(["h3","h2","h1","a"]) else "")
-        if not title:
-            # fallback: first 8 words
-            words = txt.split()
-            title = " ".join(words[:8]) if words else "Live music"
 
-        date_m = DATE_LINE.search(txt)
-        day = _parse_date(date_m.group(0)) if date_m else None
-        time_m = TIME_LINE.search(txt)
-        time_text = time_m.group(0) if time_m else ""
+        # Title
+        title_el = (
+            card.select_one(".tribe-events-calendar-list__event-title a")
+            or card.select_one(".tribe-events-calendar-list__event-title")
+            or card.select_one(".mec-event-title a")
+            or card.select_one(".mec-event-title")
+            or card.find(["h3", "h2", "a"])
+        )
+        title = txt(title_el)
+        if _bad_title(title):
+            continue
 
-        addr = ""
-        for cand in re.findall(r"\b\d{2,5}\s+[A-Za-z0-9 .'-]+(?:St|Street|Ave|Avenue|Blvd|Boulevard|Rd|Road|Way|Place|Pl|Dr|Drive)\b.*?(?:\bCA\b|\bCalifornia\b|\b931\d{2}\b)?", txt):
-            addr = cand
-            break
-        zip_code = ""
-        mzip = re.search(r"\b(931\d{2})\b", txt)
-        if mzip:
-            zip_code = mzip.group(1)
+        # Date (prefer <time datetime>)
+        day = None
+        time_text = ""
+        dt_el = card.select_one("time[datetime]")
+        if dt_el and dt_el.has_attr("datetime"):
+            iso = dt_el["datetime"]
+            if re.match(r"\d{4}-\d{2}-\d{2}", iso):
+                try:
+                    day = dt.datetime.fromisoformat(iso[:10]).date()
+                except Exception:
+                    day = None
+            time_text = txt(dt_el)
+        if not day:
+            mdate = DATE_RE.search(text)
+            if mdate:
+                day = _parse_date(mdate.group(0))
+        if not time_text:
+            mtime = TIME_RE.search(text)
+            if mtime:
+                time_text = mtime.group(0)
 
-        ev = _event_dict(day, title, None, addr or None, "Santa Barbara", zip_code or None, time_text)
+        # Venue/address (best-effort)
+        venue = txt(
+            card.select_one(".tribe-events-venue, .venue, .location, .mec-venue-name")
+        )
+        address_el = (
+            card.select_one(".tribe-events-address, .address, .mec-address")
+            or card
+        )
+        address_raw = txt(address_el)
+        address, zip_code = _addr_zip(address_raw)
+
+        ev = _event_dict(day, title, venue or None, address or None, zip_code or None, time_text or "")
         if ev:
             out.append(ev)
-    return out
 
-# --- entry point -------------------------------------------------------------
+    return out
 
 def lnsb_fetch() -> List[Dict]:
+    # Only event-like pages; do not scrape the homepage to avoid nav junk
     urls = [
-        SITE,
         urljoin(SITE, "/events"),
         urljoin(SITE, "/calendar"),
         urljoin(SITE, "/upcoming"),
     ]
+
     events: List[Dict] = []
     seen = set()
 
     for url in urls:
-        html_text = _fetch_html(url)
+        html_text = _fetch(url)
         if not html_text:
             continue
         soup = BeautifulSoup(html_text, "html.parser")
 
-        for strat in (_try_events_calendar, _try_modern_events_calendar, _try_heuristic):
-            for ev in strat(soup):
-                # keep future-ish events; do not drop if parsing fails
-                try:
-                    dt_start = dt.datetime.fromisoformat(ev["start"].replace("Z", "+00:00"))
-                    if dt_start < dt.datetime.now() - dt.timedelta(days=1):
-                        continue
-                except Exception:
-                    pass
-                if ev["id"] in seen:
+        for ev in _extract_from_cards(soup):
+            # keep only future-ish
+            try:
+                start_dt = dt.datetime.fromisoformat(ev["start"].replace("Z", "+00:00"))
+                if start_dt < dt.datetime.now() - dt.timedelta(days=1):
                     continue
-                seen.add(ev["id"])
-                events.append(ev)
+            except Exception:
+                pass
+            if ev["id"] in seen:
+                continue
+            seen.add(ev["id"])
+            events.append(ev)
 
-        if len(events) >= 20:
+        if len(events) >= 30:
             break
 
-    # sort ascending by start
+    # sort by start
     def _k(e):
         try:
             return dt.datetime.fromisoformat(e["start"].replace("Z", "+00:00"))
