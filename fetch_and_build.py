@@ -1,121 +1,158 @@
 #!/usr/bin/env python3
 """
-Auto-update events.json for SOUND VISION BUZZ
---------------------------------------------
-
-* Wraps the feed as:
-    {
-      "generated": "2025-08-06T22:34:18Z",
-      "events": [ … ]
-    }
-
-* Sources merged today:
-    • Ticketmaster  (optional – returns 0 for Santa Barbara now)
-    • LiveNotesSB   (custom scraper you just added)
-
-Future sources can be added by dropping `sources/xyz.py` with a
-`fetch(**kwargs)` function and wiring it into `fetch_from_sources()`.
-
-The script is idempotent and safe to run locally or in GitHub Actions.
+Enhanced build script for Santa Barbara events data.
+Combines LiveNotesSB events with sample events and handles formatting.
 """
-
-from __future__ import annotations
 
 import json
 import datetime as dt
 from pathlib import Path
-from typing import List, Dict
+from typing import Dict, List, Any
 
-# ───────────────────────────── Config ────────────────────────────────
-DATA_PATH = Path(__file__).parent / "events.json"
-
-# Attempt to import optional source modules.
-# They each expose a `fetch(**kwargs) -> list[dict]`.
+# Import the scraper
 try:
-    from sources import ticketmaster  # type: ignore
-except ModuleNotFoundError:
-    ticketmaster = None  # still expands cleanly
-
-try:
-    from sources import lnsb_fetch          # LiveNotesSB
-except ModuleNotFoundError:                 # if __init__.py missing
-    lnsb_fetch = lambda *_, **__: []        # noqa: E731
-
-
-# ─────────────────────────── Helpers ────────────────────────────────
-def load_events() -> List[Dict]:
-    """Return current events (handles wrapped / legacy formats)."""
-    if not DATA_PATH.exists():
+    from sources.lnsb_fetch import lnsb_fetch
+except ImportError:
+    print("Warning: Could not import lnsb_fetch. Using sample events only.")
+    def lnsb_fetch():
         return []
 
-    text = DATA_PATH.read_bytes().decode("utf-8", errors="replace")
+def load_sample_events() -> List[Dict[str, Any]]:
+    """Load sample events as fallback."""
+    return [
+        {
+            "id": "sb001",
+            "title": "Summer Nights Concert: Spencer the Gardener",
+            "category": "Music",
+            "genre": "Rock",
+            "city": "Santa Barbara",
+            "zip": "93101",
+            "start": "2025-08-01T18:00:00-07:00",
+            "end": "2025-08-01T20:00:00-07:00",
+            "venue": "SB County Courthouse Sunken Gardens",
+            "address": "1100 Anacapa St, Santa Barbara, CA 93101",
+            "popularity": 98
+        },
+        {
+            "id": "sb002",
+            "title": "Downtown Friday Night Concert",
+            "category": "Music",
+            "genre": "Folk",
+            "city": "Santa Barbara",
+            "zip": "93101",
+            "start": "2025-08-08T19:00:00-07:00",
+            "end": "2025-08-08T21:00:00-07:00",
+            "venue": "Paseo Nuevo",
+            "address": "651 Paseo Nuevo, Santa Barbara, CA 93101",
+            "popularity": 85
+        },
+        {
+            "id": "sb003",
+            "title": "Jazz at the Bowl",
+            "category": "Music",
+            "genre": "Jazz",
+            "city": "Santa Barbara",
+            "zip": "93103",
+            "start": "2025-08-15T20:00:00-07:00",
+            "end": "2025-08-15T22:30:00-07:00",
+            "venue": "Santa Barbara Bowl",
+            "address": "1122 N Milpas St, Santa Barbara, CA 93103",
+            "popularity": 92
+        }
+    ]
 
-    # Wrapped form {generated, events:[…]}
-    if text.lstrip().startswith("{"):
-        try:
-            obj = json.loads(text)
-            events = obj.get("events", [])
-        except Exception:
-            events = []
-    else:  # Legacy flat array
-        events = json.loads(text)
+def validate_event(event: Dict[str, Any]) -> bool:
+    """Validate that an event has all required fields."""
+    required_fields = ["id", "title", "category", "genre", "city", "zip", 
+                      "start", "end", "venue", "address", "popularity"]
+    
+    for field in required_fields:
+        if field not in event:
+            print(f"Warning: Event {event.get('id', 'unknown')} missing field: {field}")
+            return False
+    
+    return True
 
-    # Drop any stray {"generated": …} rows inside the list
-    return [ev for ev in events if not (ev.keys() == {"generated"})]
-
-
-def save_feed(events: List[Dict]) -> None:
-    feed = {
-        "generated": dt.datetime.utcnow().isoformat(timespec="seconds") + "Z",
-        "events": events,
-    }
-    DATA_PATH.write_text(
-        json.dumps(feed, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    print(f"✓ Wrote {len(events)} events to {DATA_PATH.name}")
-
-
-# ─────────────────────────── Sources ────────────────────────────────
-def fetch_from_sources() -> List[Dict]:
-    """Aggregate events from every enabled source module."""
-    events: List[Dict] = []
-
-    # 1 ▸ Ticketmaster (returns [] if module missing or no SB data)
-    if ticketmaster:
-        try:
-            events += ticketmaster.fetch(city="Santa Barbara")
-        except Exception as e:
-            print("⚠️  Ticketmaster fetch failed:", e)
-
-    # 2 ▸ LiveNotesSB (always present after lnsb_fetch import)
+def sort_events_by_date(events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Sort events by start date."""
     try:
-        events += lnsb_fetch()
+        return sorted(events, key=lambda x: dt.datetime.fromisoformat(x['start'].replace('Z', '+00:00')))
     except Exception as e:
-        print("⚠️  LiveNotesSB fetch failed:", e)
+        print(f"Warning: Could not sort events by date: {e}")
+        return events
 
-    return events
-
-
-def merge_dedupe(existing: List[Dict], new: List[Dict]) -> List[Dict]:
-    """Very simple de-dupe by unique 'id'."""
-    by_id: Dict[str, Dict] = {ev["id"]: ev for ev in existing if "id" in ev}
-    for ev in new:
-        by_id[ev["id"]] = ev
-    return list(by_id.values())
-
-
-# ─────────────────────────── Main ───────────────────────────────────
-def main() -> None:
-    base_events   = load_events()
-    fresh_events  = fetch_from_sources()
-    combined      = merge_dedupe(base_events, fresh_events)
-
-    # Optional: sort soonest first
-    combined.sort(key=lambda ev: ev.get("start", "9999"))
-
-    save_feed(combined)
-
+def main():
+    """Main build function."""
+    print("Building Santa Barbara events data...")
+    
+    # Fetch LiveNotesSB events
+    print("Fetching LiveNotesSB events...")
+    lnsb_events = lnsb_fetch()
+    print(f"Found {len(lnsb_events)} LiveNotesSB events")
+    
+    # Load sample events as backup
+    sample_events = load_sample_events()
+    print(f"Loaded {len(sample_events)} sample events")
+    
+    # Combine all events
+    all_events = []
+    
+    # Add valid LiveNotesSB events
+    for event in lnsb_events:
+        if validate_event(event):
+            all_events.append(event)
+    
+    # Add sample events
+    for event in sample_events:
+        if validate_event(event):
+            all_events.append(event)
+    
+    # Sort events by date
+    all_events = sort_events_by_date(all_events)
+    
+    # Create final data structure
+    events_data = {
+        "generated": dt.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "total_events": len(all_events),
+        "sources": {
+            "livenotessb": len(lnsb_events),
+            "samples": len(sample_events)
+        },
+        "events": all_events
+    }
+    
+    # Write to events.json
+    output_path = Path("events.json")
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(events_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Successfully built events.json with {len(all_events)} events")
+    print(f"   - LiveNotesSB events: {len(lnsb_events)}")
+    print(f"   - Sample events: {len(sample_events)}")
+    
+    # Show first few events for verification
+    print("\n📋 First 3 events:")
+    for i, event in enumerate(all_events[:3], 1):
+        print(f"{i}. {event['title']} at {event['venue']}")
+        print(f"   📍 {event['address']}")
+        print(f"   🕐 {event['start']}")
+    
+    # Copy to iOS app locations
+    ios_paths = [
+        Path.home() / "Desktop/sound_vision_buzz_app/events.json",
+        Path.home() / "Desktop/SOUND VISION BUZZ/events.json"
+    ]
+    
+    for ios_path in ios_paths:
+        if ios_path.parent.exists():
+            try:
+                import shutil
+                shutil.copy2(output_path, ios_path)
+                print(f"✅ Copied to {ios_path}")
+            except Exception as e:
+                print(f"❌ Failed to copy to {ios_path}: {e}")
+        else:
+            print(f"⚠️  iOS app directory not found: {ios_path.parent}")
 
 if __name__ == "__main__":
     main()
