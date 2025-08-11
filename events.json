@@ -1,264 +1,60 @@
 [
   {
     "source": "LiveNotesSB",
-    "title": "Larry Williams (blues, classic rock/pop)",
-    "venue_name": "Benchmark Eatery",
+    "title": "Bill Rotella (singer/songwriter, americana, folk)",
+    "venue_name": "Brick Barn Wine Estate",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T12:00:00-07:00",
+    "start": "2025-08-11T16:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "Erinn Alissa (singer/songwriter, country, folk, pop, rock)",
-    "venue_name": "Firestone Vineyard and Winery",
+    "title": "East Valley Road (blues, sou, americana)",
+    "venue_name": "Buttonwood Winery",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T12:00:00-07:00",
+    "start": "2025-08-11T16:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "Nataly Lola (singer/songwriter, rock, pop, americana, country)",
-    "venue_name": "Vega Vineyard & Farm",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T12:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jeff Pine (rock)",
-    "venue_name": "Gainey Vineyard",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T12:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "The Genuine Article (folk rock, classic rock)",
-    "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jeff Elliott (jazz) Presented by the Santa Barbara Jazz Society",
-    "venue_name": "Soho",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "The Traveling Hurtados (classic rock)",
-    "venue_name": "(Lake Cachuma)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Wine Club Release Party",
-    "venue_name": "(classic rock)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Devyn Brinsfield (singer/songwriter, country)",
-    "venue_name": "ero",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Mestizo (latin jazz, soul, r&b)",
-    "venue_name": "Summer Concerts in the Park",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Terry Lawless (rock)",
-    "venue_name": "805 Charcuterie",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Tom Ball and Kenny Sultan (blues, americana)",
-    "venue_name": "Cold Spring Tavern",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T13:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Paradise Kings (classic rock, blues, swing)",
-    "venue_name": "(Goleta)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T14:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Tina Schlieske with Sister Laura and The Graceland Exiles (rock, americana, soul)",
-    "venue_name": "Babcock Winery",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T14:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Brian Kinsella (classic rock, americana, blues)",
+    "title": "Open Mic Night",
     "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T15:00:00-07:00",
+    "start": "2025-08-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "Zydeco Zippers (cajun, zydeco)",
-    "venue_name": "Night Lizard Brewing",
+    "title": "Shelly Dubow (jazz)",
+    "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T15:00:00-07:00",
+    "start": "2025-08-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "San Roque Trio (soft/easy listening rock)",
-    "venue_name": "Samsara Wine Co.",
+    "title": "Eric Zobel (rock, folk, blues, country, pop, reggae)",
+    "venue_name": "Drift Hotel",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T15:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Barry McGuire (classic rock, americana)",
-    "venue_name": "Carhartt Vineyard",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T15:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "DOCTOR WU (Steely Dan tribute)(rock, prog rock)",
-    "venue_name": "Music in The Garden",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T15:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jane & Shane (country)",
-    "venue_name": "Costa de Oro Winery",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T15:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Previously Committed (jazz)",
-    "venue_name": "High Seas Mead",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T16:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Overdrive (hard rock, metal)",
-    "venue_name": "Brewhouse",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-11T16:00:00-07:00",
+    "start": "2025-08-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -270,15 +66,15 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T16:00:00-07:00",
+    "start": "2025-08-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "2",
-    "venue_name": "Glenn Novack with Ruben & Rene Salazar (jazz)",
+    "title": "Dan Zimmerman (blues, jazz)",
+    "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -289,12 +85,360 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "The Traveling Hurtados (classic rock)",
-    "venue_name": "Anchor Rose",
+    "title": "Kim\u2019s Happy Hour Jazz Class (jazz)",
+    "venue_name": "Soho",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T18:15:00-07:00",
+    "start": "2025-08-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The Waymakers (celtic)",
+    "venue_name": "Music In The Park Summer Series",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "(Henry Garrett & Jan Ingram) (rock)",
+    "venue_name": "The Mixx",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Tequila Mockingbird (rock, classic rock)",
+    "venue_name": "Meet Me in Old Town Goleta",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Velvet Rope Trio (jazz, funk, blues, neo soul)",
+    "venue_name": "(Goleta)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jeff Pine (rock)",
+    "venue_name": "Brothers Red Barn",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Different Strings (classic rock)",
+    "venue_name": "Skyway Nights",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Doublewide Kings (classic rock)",
+    "venue_name": "Music at The Ranch",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Italian Night",
+    "venue_name": "Jon and Nicole (accordion and violin)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Guilty Pleasure Boys (classic rock)",
+    "venue_name": "Corks & Crowns",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T17:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Teka (brazilian jazz)",
+    "venue_name": "(Goleta)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jayden Secor (country, country rock)",
+    "venue_name": "Corktree Cellars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The George Mamalakis Trio (instrumental jazz standards)",
+    "venue_name": "Harbor Restaurant",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Hosted by Brandon Kinalele",
+    "venue_name": "The Rat Pack Showcase and Open Mic",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "In Jam",
+    "venue_name": "Sit",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Cicadas",
+    "venue_name": "Corktree Cellars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night",
+    "venue_name": "ITH Santa Barbara Beach Hostel",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Campfire Joe (rock, classic rock)",
+    "venue_name": "Institution Ale",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Marisa Pasquini and Anthony (soul, r&b, jazz, pop)",
+    "venue_name": "Villa Wine Bar & Kitchen",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Hosted by Salty Strings & Maritime Law",
+    "venue_name": "Bring your instruments",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The Lola Bard Trio (jazz)",
+    "venue_name": "Gin and Jazz Thursday",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Eric Zobel (rock, folk, blues, country, pop, reggae)",
+    "venue_name": "Vinland Hotel",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Three Chord Revival (classic rock)",
+    "venue_name": "Corner Tap",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T18:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night",
+    "venue_name": "(formerly Wylde Works)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "5:30",
+    "venue_name": "Bring your Uke, all levels welcomed",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Matthew Clark Trio (reggae, ska, rock)",
+    "venue_name": "Validation Ale",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Sean Wiggins (singer/songwriter, classic rock, soul)",
+    "venue_name": "Reef & Run",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Morganfield Burnett Band (blues)",
+    "venue_name": "Church on Monday",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "4",
+    "venue_name": "(blues, rock)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Hosted by Dan Heitner",
+    "venue_name": "Open Mic Night",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -306,15 +450,15 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-11T19:00:00-07:00",
+    "start": "2025-08-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "(HED) P.E. (punk, rap, reggae)",
-    "venue_name": "Soho",
+    "title": "House of Blues (blues)",
+    "venue_name": "Woodstock Pizza",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -325,12 +469,60 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Kelly\u2019s Lot (americana, blues, folk, roots/rock)",
+    "title": "Laurence Juber (rock, pop, folk, jazz) and Christena Rich (singer/songwriter)",
     "venue_name": "Lost Chord Guitars",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-11T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night",
+    "venue_name": "Maverick Saloon",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "(new wave, rock, prog rock, reggae)",
+    "venue_name": "New Clementine",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6",
+    "venue_name": "(singer/songwriter)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T20:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6:30",
+    "venue_name": "(jazz)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-11T21:00:00-07:00",
     "tags": [
       "music"
     ]
