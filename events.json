@@ -325,18 +325,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "The Lola Bard Trio (jazz)",
-    "venue_name": "Gin and Jazz Thursday",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-12T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Eric Zobel (rock, folk, blues, country, pop, reggae)",
     "venue_name": "Vinland Hotel",
     "address": "",
@@ -385,8 +373,8 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Matthew Clark Trio (reggae, ska, rock)",
-    "venue_name": "Validation Ale",
+    "title": "Sean Wiggins (singer/songwriter, classic rock, soul)",
+    "venue_name": "Reef & Run",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -397,8 +385,8 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Sean Wiggins (singer/songwriter, classic rock, soul)",
-    "venue_name": "Reef & Run",
+    "title": "Matthew Clark Trio (reggae, ska, rock)",
+    "venue_name": "Validation Ale",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
