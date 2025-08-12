@@ -25,18 +25,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "Corks & Crowns",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-12T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Shelly Dubow (jazz)",
     "venue_name": "Corks & Crowns",
     "address": "",
@@ -397,36 +385,12 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Morganfield Burnett Band (blues)",
-    "venue_name": "Church on Monday",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-12T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "4",
     "venue_name": "(blues, rock)",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-12T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Hosted by Dan Heitner",
-    "venue_name": "Open Mic Night",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-12T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -507,6 +471,18 @@
     "source": "LiveNotesSB",
     "title": "6:30",
     "venue_name": "(jazz)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-12T21:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Koalishon (reggae, ska)",
+    "venue_name": "Sandbar",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
