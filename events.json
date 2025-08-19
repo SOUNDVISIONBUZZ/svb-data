@@ -73,6 +73,18 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "KLITE Summer Wine Down",
+    "venue_name": "(soul, pop, r&b)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-19T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Kelly\u2019s Lot (americana, blues, folk, roots/rock)",
     "venue_name": "Music In The Park Summer Series",
     "address": "",
@@ -315,6 +327,18 @@
     "source": "LiveNotesSB",
     "title": "Ray Jaurique Trio (blues)",
     "venue_name": "Church on Monday",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-19T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6",
+    "venue_name": "(rock, hard rock)",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
