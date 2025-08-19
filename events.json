@@ -6,7 +6,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T16:00:00-07:00",
+    "start": "2025-08-19T16:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -18,7 +18,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -30,7 +30,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -42,7 +42,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -54,7 +54,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -66,7 +66,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -78,7 +78,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -90,7 +90,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -102,7 +102,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:00:00-07:00",
+    "start": "2025-08-19T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -114,7 +114,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:30:00-07:00",
+    "start": "2025-08-19T17:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -126,7 +126,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:30:00-07:00",
+    "start": "2025-08-19T17:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -138,7 +138,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T17:30:00-07:00",
+    "start": "2025-08-19T17:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -150,7 +150,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -162,7 +162,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -174,7 +174,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -186,7 +186,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -198,7 +198,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -210,7 +210,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -222,7 +222,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -234,7 +234,19 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:00:00-07:00",
+    "start": "2025-08-19T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "David Segall Band (singer/songwriter, roots rock, reggae, soul)",
+    "venue_name": "Satellite",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -246,7 +258,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T18:30:00-07:00",
+    "start": "2025-08-19T18:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -258,7 +270,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T19:00:00-07:00",
+    "start": "2025-08-19T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -270,7 +282,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T19:00:00-07:00",
+    "start": "2025-08-19T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -282,7 +294,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T19:00:00-07:00",
+    "start": "2025-08-19T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -294,7 +306,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T19:00:00-07:00",
+    "start": "2025-08-19T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -306,7 +318,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T19:30:00-07:00",
+    "start": "2025-08-19T19:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -318,7 +330,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T19:30:00-07:00",
+    "start": "2025-08-19T19:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -330,7 +342,19 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T19:30:00-07:00",
+    "start": "2025-08-19T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "5:30",
+    "venue_name": "(Adam Lenhard) (singer/songwriter, indie pop)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-19T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -342,7 +366,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T20:00:00-07:00",
+    "start": "2025-08-19T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -354,7 +378,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T20:00:00-07:00",
+    "start": "2025-08-19T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -366,7 +390,19 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T20:00:00-07:00",
+    "start": "2025-08-19T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Chris Pelonis and Ben Jordan (singer/songwriter, americana, folk, rock)",
+    "venue_name": "Lost Chord Guitars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-19T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -378,7 +414,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T20:00:00-07:00",
+    "start": "2025-08-19T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -390,7 +426,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T20:00:00-07:00",
+    "start": "2025-08-19T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -402,7 +438,19 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T20:30:00-07:00",
+    "start": "2025-08-19T20:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6:30",
+    "venue_name": "(songwriter, rock, classic rock)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-19T20:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -414,7 +462,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T21:00:00-07:00",
+    "start": "2025-08-19T21:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -426,7 +474,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T21:00:00-07:00",
+    "start": "2025-08-19T21:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -438,7 +486,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-08-18T21:00:00-07:00",
+    "start": "2025-08-19T21:00:00-07:00",
     "tags": [
       "music"
     ]
