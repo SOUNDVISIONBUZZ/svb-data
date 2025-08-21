@@ -1,32 +1,8 @@
 [
   {
     "source": "LiveNotesSB",
-    "title": "Jayden Secor (country)",
-    "venue_name": "Brick Barn Wine Estate",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T16:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Dan Zimmerman (blues, jazz)",
-    "venue_name": "Corks & Crowns",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "KLITE Summer Wine Down",
-    "venue_name": "(soul, pop, r&b)",
+    "title": "Kimberly Ford and Stan Krome (classic rock, jazz)",
+    "venue_name": "Anchor Rose",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -49,30 +25,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Kelly\u2019s Lot (americana, blues, folk, roots/rock)",
-    "venue_name": "Music In The Park Summer Series",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Kimberly Ford and Stan Krome (classic rock, jazz)",
-    "venue_name": "Anchor Rose",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Jeff Pine (rock)",
     "venue_name": "Brothers Red Barn",
     "address": "",
@@ -85,84 +37,12 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Italian Night",
-    "venue_name": "Jon and Nicole (accordion and violin)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T17:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Guilty Pleasure Boys (classic rock)",
     "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-21T17:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Vinny Berry (rock, blues)",
-    "venue_name": "Corktree Cellars",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "805 Blues Collective (blues)",
-    "venue_name": "Fig Mountain Brewing",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "The George Mamalakis Trio (instrumental jazz standards)",
-    "venue_name": "Harbor Restaurant",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Hosted by Brandon Kinalele",
-    "venue_name": "The Rat Pack Showcase and Open Mic",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "In Jam",
-    "venue_name": "Sit",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -217,30 +97,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "MY MORNING JACKET (rock, indie rock) with special guest MELT (indie rock/pop)",
-    "venue_name": "Santa Barbara Bowl",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T18:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "The Other Woman (classic rock)",
-    "venue_name": "Whiskey Richards",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T19:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Brett Hunter Band (pop, soul, r&b)",
     "venue_name": "Reef & Run",
     "address": "",
@@ -277,30 +133,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "6",
-    "venue_name": "(rock, hard rock)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Eliza Gilkyson with Nina Gerber (singer/songwriter, folk)",
-    "venue_name": "Presents",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "4",
     "venue_name": "(blues, rock)",
     "address": "",
@@ -315,42 +147,6 @@
     "source": "LiveNotesSB",
     "title": "Ivy Alex (pianist, entertainer)",
     "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Okonski (jazz) and Mae Powell (singer/songwriter, indie pop)",
-    "venue_name": "Soho",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Two Eyed Toadz (indie rock)",
-    "venue_name": "Woodstock Pizza",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Chris Pelonis and Ben Jordan (singer/songwriter, americana, folk, rock)",
-    "venue_name": "Lost Chord Guitars",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -379,42 +175,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-21T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "6:30",
-    "venue_name": "(songwriter, rock, classic rock)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T20:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "6:30",
-    "venue_name": "(jazz)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T21:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Israel\u2019s Arcade (indie rock, garage rock, punk)",
-    "venue_name": "Sandbar",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-21T21:00:00-07:00",
     "tags": [
       "music"
     ]
