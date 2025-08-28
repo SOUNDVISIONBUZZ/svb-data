@@ -1,19 +1,7 @@
 [
   {
     "source": "LiveNotesSB",
-    "title": "Jimmy Becker (classic rock)",
-    "venue_name": "Brick Barn Wine Estate",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T16:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Dan Zimmerman (blues, jazz)",
+    "title": "Al Vafa (blues, jazz, soul)",
     "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
@@ -37,96 +25,12 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Soul Kool (soul, r&b, old school, latin pop)",
-    "venue_name": "Music In The Park Summer Series",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Al Vafa (blues, jazz, soul)",
-    "venue_name": "Corks & Crowns",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Jeff Pine (rock)",
     "venue_name": "Brothers Red Barn",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-28T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Italian Night",
-    "venue_name": "Jon and Nicole (accordion and violin)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T17:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jayden Secor (country, country rock)",
-    "venue_name": "Corktree Cellars",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "The George Mamalakis Trio (instrumental jazz standards)",
-    "venue_name": "Harbor Restaurant",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Hosted by Brandon Kinalele",
-    "venue_name": "The Rat Pack Showcase and Open Mic",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "In Jam",
-    "venue_name": "Sit",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -187,18 +91,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-28T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Off White (rock, classic rock/pop)",
-    "venue_name": "Corner Tap",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T18:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -289,32 +181,20 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Ivy Alex (pianist, entertainer)",
-    "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Tim Flannery , Keith Malloy , and Chris Pelonis (singer/songwriter, americana, folk, rock)",
-    "venue_name": "Lost Chord Guitars",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Jag Farrah (indie pop, r&b)",
     "venue_name": "Seven Bar & Kitchen",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-08-28T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Ivy Alex (pianist, entertainer)",
+    "venue_name": "The Red Piano",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -355,30 +235,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-08-28T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "6:30",
-    "venue_name": "(jazz)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T21:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Nicole Sophia (singer/songwriter, indie pop rock)",
-    "venue_name": "Sandbar",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-08-28T21:00:00-07:00",
     "tags": [
       "music"
     ]
