@@ -1,24 +1,36 @@
 [
   {
     "source": "LiveNotesSB",
-    "title": "Tomorrow & The Aurora Borealis (rock, reggae,), Jlocc (rap), Franky B & Moniq (rap, hip hop), Godspeed (rap), and Chris The Thrillest (rap)",
-    "venue_name": "Summer Vibes IV",
+    "title": "Jason Libs (classic hits)",
+    "venue_name": "The Red Piano",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-02T11:00:00-07:00",
+    "start": "2025-09-05T17:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "Lenny Kerley and The Blues Priority (blues)",
-    "venue_name": "Cold Spring Tavern",
+    "title": "hop)",
+    "venue_name": "(soul, r&b, hip",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-02T13:00:00-07:00",
+    "start": "2025-09-05T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Guilty Pleasure Boys (classic rock)",
+    "venue_name": "Corks & Crowns",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T17:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -26,47 +38,179 @@
   {
     "source": "LiveNotesSB",
     "title": "Open Mic Night",
-    "venue_name": "Corks & Crowns",
+    "venue_name": "ITH Santa Barbara Beach Hostel",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-02T17:00:00-07:00",
+    "start": "2025-09-05T18:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "Doc Ventura (blues)",
-    "venue_name": "Church on Monday",
+    "title": "Hot Club of Santa Barbara (gypsy jazz)",
+    "venue_name": "Villa Wine Bar & Kitchen",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-02T19:30:00-07:00",
+    "start": "2025-09-05T18:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "Hosted by Dan Heitner",
-    "venue_name": "Open Mic Night",
+    "title": "Brett Hunter Band (pop, soul, r&b)",
+    "venue_name": "Satellite",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-02T20:00:00-07:00",
+    "start": "2025-09-05T18:00:00-07:00",
     "tags": [
       "music"
     ]
   },
   {
     "source": "LiveNotesSB",
-    "title": "Afroman (reggae)",
-    "venue_name": "Soho",
+    "title": "Santa Barbara Jazz Collective (jazz)",
+    "venue_name": "The Good Lion",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-02T20:00:00-07:00",
+    "start": "2025-09-05T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Adrian Galysh (rock, blues)",
+    "venue_name": "Vinland Hotel",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Elemental (rock, pop)",
+    "venue_name": "(Salsipuedes St.)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Brent Franklin (singer/songwriter)",
+    "venue_name": "Institution Ale",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night",
+    "venue_name": "SloDoCo",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6",
+    "venue_name": "(singer/songwriter, folk, americana)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6:30",
+    "venue_name": "Last Dance of The Summer Party",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Alissa Musto (pianist, entertainer)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night",
+    "venue_name": "Maverick Saloon",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Arwen Lewis (singer/songwriter)",
+    "venue_name": "Lost Chord Guitars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "6",
+    "venue_name": "(reggae)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T20:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Bryan Titus Trio (postmodern barn dance, americana)",
+    "venue_name": "The Cruisery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-05T21:00:00-07:00",
     "tags": [
       "music"
     ]
