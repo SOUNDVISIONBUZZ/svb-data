@@ -13,18 +13,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "Corks & Crowns",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-09T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Shelly Dubow (jazz)",
     "venue_name": "Corks & Crowns",
     "address": "",
@@ -325,60 +313,12 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "RJ Mischo (blues)",
-    "venue_name": "Church on Monday",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-09T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "4",
     "venue_name": "(blues, rock)",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-09T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "5:30",
-    "venue_name": "(singer/songwriter, indie rock, folk)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-09T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Tommy Guerrero with Josh Lippi (alt rock)",
-    "venue_name": "Soho",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-09T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Hosted by Dan Heitner",
-    "venue_name": "Open Mic Night",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-09T20:00:00-07:00",
     "tags": [
       "music"
     ]
