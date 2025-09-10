@@ -97,6 +97,18 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Soul Vibe (jazz, r&b, funk, disco, motown, latin dance)",
+    "venue_name": "Skyway Nights",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-10T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Italian Night",
     "venue_name": "Jon and Nicole (accordion and violin)",
     "address": "",
@@ -183,6 +195,18 @@
     "source": "LiveNotesSB",
     "title": "The Free Radicals (rock, americana)",
     "venue_name": "Institution Ale",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-10T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Hosted by Salty Strings & Maritime Law",
+    "venue_name": "Bring your instruments",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
