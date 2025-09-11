@@ -6,43 +6,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T16:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Shelly Dubow (jazz)",
-    "venue_name": "Corks & Crowns",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jason Libs (classic hits)",
-    "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Sam Kulchin (classic rock)",
-    "venue_name": "Drift Hotel",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
+    "start": "2025-09-11T16:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -54,7 +18,19 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
+    "start": "2025-09-11T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jason Libs (classic hits)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -66,7 +42,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
+    "start": "2025-09-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -78,7 +54,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
+    "start": "2025-09-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -90,7 +66,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
+    "start": "2025-09-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -102,7 +78,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T17:00:00-07:00",
+    "start": "2025-09-11T17:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -114,19 +90,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T17:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Teka (brazilian jazz)",
-    "venue_name": "(Goleta)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T17:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -138,7 +102,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -150,7 +114,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -162,7 +126,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -174,7 +138,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -186,7 +150,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -198,7 +162,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -210,7 +174,19 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Molly O\u2019Connell (singer/songwriter)",
+    "venue_name": "Satellite",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -222,7 +198,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:00:00-07:00",
+    "start": "2025-09-11T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -234,43 +210,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T18:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Vance, Tico , and Friedenthal Quartet (jazz)",
-    "venue_name": "Soho",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Hosted by Dan Heitner",
-    "venue_name": "Open Mic Night",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "5:30",
-    "venue_name": "Bring your Uke, all levels welcomed",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
+    "start": "2025-09-11T18:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -282,7 +222,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
+    "start": "2025-09-11T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -294,7 +234,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
+    "start": "2025-09-11T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -306,7 +246,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
+    "start": "2025-09-11T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -318,7 +258,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
+    "start": "2025-09-11T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -330,7 +270,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T19:00:00-07:00",
+    "start": "2025-09-11T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -342,7 +282,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T19:30:00-07:00",
+    "start": "2025-09-11T19:30:00-07:00",
     "tags": [
       "music"
     ]
@@ -354,7 +294,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T20:00:00-07:00",
+    "start": "2025-09-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -366,7 +306,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T20:00:00-07:00",
+    "start": "2025-09-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -378,7 +318,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T20:00:00-07:00",
+    "start": "2025-09-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -390,7 +330,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T20:00:00-07:00",
+    "start": "2025-09-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -402,7 +342,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T20:00:00-07:00",
+    "start": "2025-09-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -414,7 +354,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T20:00:00-07:00",
+    "start": "2025-09-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -426,7 +366,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T20:00:00-07:00",
+    "start": "2025-09-11T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -438,7 +378,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T21:00:00-07:00",
+    "start": "2025-09-11T21:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -450,7 +390,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T21:00:00-07:00",
+    "start": "2025-09-11T21:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -462,7 +402,7 @@
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
-    "start": "2025-09-10T21:00:00-07:00",
+    "start": "2025-09-11T21:00:00-07:00",
     "tags": [
       "music"
     ]
