@@ -577,66 +577,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Al Vafa (blues, jazz, soul)",
-    "venue_name": "Corks & Crowns",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "(Henry Garrett & Jan Ingram) (rock)",
-    "venue_name": "The Mixx",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jason Libs (classic hits)",
-    "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jeff Pine (rock)",
-    "venue_name": "Brothers Red Barn",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Soul Vibe (jazz, r&b, funk, disco, motown, latin dance)",
-    "venue_name": "Skyway Nights",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Low Tide Trio (jazz)",
     "venue_name": "Mosaic Locale",
     "address": "",
@@ -651,6 +591,18 @@
     "source": "LiveNotesSB",
     "title": "Stacked (modern/classic rock n roll)",
     "venue_name": "Carhartts Vineyard",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jeff Pine (rock)",
+    "venue_name": "Brothers Red Barn",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -727,78 +679,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-12T17:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "We are The Kind (folk, blues)",
-    "venue_name": "Fig Mountain Brewing",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "ITH Santa Barbara Beach Hostel",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "The Free Radicals (rock, americana)",
-    "venue_name": "Institution Ale",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Hosted by Salty Strings & Maritime Law",
-    "venue_name": "Bring your instruments",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Molly O\u2019Connell (singer/songwriter)",
-    "venue_name": "Satellite",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Eric Zobel (rock, folk, blues, country, pop, reggae)",
-    "venue_name": "Vinland Hotel",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -967,30 +847,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-12T18:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Sultans, Eulitz, and Lee",
-    "venue_name": "(Salsipuedes St.)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T19:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "SloDoCo",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -1213,18 +1069,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "4",
-    "venue_name": "(blues, rock)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "RONSTADT REVIVAL (Linda Ronstadt Tribute) (rock, country, latin, folk)",
     "venue_name": "Lobero Theatre",
     "address": "",
@@ -1267,54 +1111,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-12T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Alissa Musto (pianist, entertainer)",
-    "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Ray and Paul (surf/garage rock) with Evan Blix (indie pop/rock) and Rose Paradise (singer/songwriter)",
-    "venue_name": "Soho",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "Maverick Saloon",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Sputnik The Band (indie pop)",
-    "venue_name": "Lost Chord Guitars",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -1495,18 +1291,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-12T20:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Fjaak (techno)",
-    "venue_name": "EOS Lounge",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-12T21:00:00-07:00",
     "tags": [
       "music"
     ]
