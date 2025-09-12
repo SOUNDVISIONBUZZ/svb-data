@@ -61,6 +61,54 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Larry Williams (blues, classic rock/pop)",
+    "venue_name": "Benchmark Eatery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T12:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Nataly Lola (singer/songwriter, rock, pop, americana, country)",
+    "venue_name": "Firestone Vineyard and Winery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T12:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "John Lyle (rock, classic rock, americana)",
+    "venue_name": "Vega Vineyard & Farm",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T12:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Bill Rotella (singer/songwriter, americana, folk)",
+    "venue_name": "Rideau Vineyards",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Jez Blacker (classic/soft rock)",
     "venue_name": "Kaena Winery",
     "address": "",
@@ -97,7 +145,91 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Greg Godfrey (pianist, entertainer)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Presented by Santa Barbara Jazz Society",
+    "venue_name": "(swing, gypsy jazz)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Matthew Clark Trio (reggae, rock, ska)",
+    "venue_name": "(Lake Cachuma)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The Hoodlum Friends (classic/modern rock, surf instrumentals)",
+    "venue_name": "Brick Barn Wine Estate",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Skunk Puppy (rock, pop, blues, americana)",
+    "venue_name": "Montemar Wines",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Kris Simeon (singer/songwriter)",
+    "venue_name": "805 Charcuterie",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Barry McGuire (country, blues, rock)",
+    "venue_name": "Cold Spring Tavern",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T13:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Tom Ball and Kenny Sultan (blues, americana)",
     "venue_name": "Cold Spring Tavern",
     "address": "",
     "city": "Santa Barbara",
@@ -123,6 +255,42 @@
     "source": "LiveNotesSB",
     "title": "Kris Simeon (singer/songwriter)",
     "venue_name": "Guadalupe Social Club",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T14:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Ben Willmore (jam, funk)",
+    "venue_name": "Island Brewing",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T14:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The Genuine Article (classic rock, folk rock)",
+    "venue_name": "(Goleta)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T14:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jackson Gillies (blues, rock)",
+    "venue_name": "Carhartt Vineyard",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -193,8 +361,80 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Guilty Pleasure Boys (classic rock)",
+    "venue_name": "Corks & Crowns",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T15:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Leslie Lembo and Friedenthal (soul, pop, r&b)",
+    "venue_name": "Anchor Rose",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T15:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Lindsey Marie (singer/songwriter, indie pop)",
+    "venue_name": "Longoria Wines",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T15:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Kellen Romano (singer/songwriter)",
+    "venue_name": "Samsara Wine Co.",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T15:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Soul Fyah (reggae)",
+    "venue_name": "Costa de Oro Winery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T15:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Razzberry Jam Dixieland Band (dixieland and New Orleans jazz)",
     "venue_name": "Hilton Garden Roof Top",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Xangie (instrumental, rock, classic rock, soul)",
+    "venue_name": "Topa Topa Brewing",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -243,6 +483,42 @@
     "source": "LiveNotesSB",
     "title": "Jared Nels (singer/songwriter, rock, yodel)",
     "venue_name": "Four Brothers Wine Co",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jason Libs (classic hits)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "La Mision (norte\u00f1a)",
+    "venue_name": "(Goleta)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "1",
+    "venue_name": "(soul, r&b, old school, latin rock)",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -397,8 +673,32 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Porch Critter (classic rock, country)",
+    "venue_name": "Brewhouse",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Kaitlyn Chui (singer/songwriter)",
     "venue_name": "Craft House at Corque",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "2",
+    "venue_name": "Glenn Novack with Ruben & Rene Salazar (jazz)",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -901,6 +1201,18 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Alissa Musto (pianist, entertainer)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "4",
     "venue_name": "(blues, rock)",
     "address": "",
@@ -927,6 +1239,30 @@
     "source": "LiveNotesSB",
     "title": "Jacob & The Good Vibes (reggae, r&b, latin)",
     "venue_name": "Corktree Cellars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Nylon Roses (Tony Ybarra) (acoustic Gen X music)",
+    "venue_name": "Roy Restaurant",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T19:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "A tribute to the music of Joni Mitchell featuring Kimberly Ford",
+    "venue_name": "Dreamland",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -1105,6 +1441,18 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Teresa Russell (blues)",
+    "venue_name": "Lost Chord Guitars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Mar Records (dj)",
     "venue_name": "Val",
     "address": "",
@@ -1191,6 +1539,18 @@
     "source": "LiveNotesSB",
     "title": "Brunello (electronic dance)",
     "venue_name": "EOS Lounge",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-12T21:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Decibel (latin rock)",
+    "venue_name": "s Lounge",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
