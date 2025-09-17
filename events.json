@@ -13,7 +13,19 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Shelly Dubow (jazz)",
+    "title": "Goodlanders Band (rock, classic rock/pop)",
+    "venue_name": "Buttonwood Winery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-17T16:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Brian Kinsella (classic rock, americana, blues)",
     "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
@@ -49,7 +61,7 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Dan Zimmerman (blues, jazz)",
+    "title": "Doug Giordani (rock, pop, classic rock)",
     "venue_name": "Corks & Crowns",
     "address": "",
     "city": "Santa Barbara",
@@ -295,6 +307,18 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-17T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "4",
+    "venue_name": "(classic rock, americana)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-17T19:30:00-07:00",
     "tags": [
       "music"
     ]
