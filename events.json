@@ -1,6 +1,18 @@
 [
   {
     "source": "LiveNotesSB",
+    "title": "Jim Rankin (blues, rock, americana)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T15:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Jayden Secor (country)",
     "venue_name": "Brick Barn Wine Estate",
     "address": "",
@@ -13,8 +25,68 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "The Driftless Revelers (indie folk)",
+    "venue_name": "Hilton Garden Roof Top",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The Rincons (classic rock, surf rock)",
+    "venue_name": "Solvang Danish Days",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jimmy Becker (classic rock)",
+    "venue_name": "Brick Barn Wine Estate",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Kris Simeon (singer/songwriter)",
+    "venue_name": "805 Charcuterie",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T16:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Goodlanders Band (rock, classic rock/pop)",
     "venue_name": "Buttonwood Winery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T16:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Adrian Galysh (blues, rock)",
+    "venue_name": "Alisal River Grill/ Alisal Ranch",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -85,6 +157,54 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Strings & Arrows (rock, classic rock, folk)",
+    "venue_name": "Mosaic Locale",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Adrian Floy and THC (reggae)",
+    "venue_name": "Carhartts Vineyard",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Different Strings Duo (classic rock)",
+    "venue_name": "Roblar Winery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Meerkats (was Electric Lavender Train) (rock, r&b, funk, soul)",
+    "venue_name": "Costa de Oro Winery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Italian Night",
     "venue_name": "Jon and Nicole (accordion and violin)",
     "address": "",
@@ -99,6 +219,30 @@
     "source": "LiveNotesSB",
     "title": "Guilty Pleasure Boys (classic rock)",
     "venue_name": "Corks & Crowns",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T17:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Nataly Lola (singer/songwriter, rock, pop, americana, country)",
+    "venue_name": "Brave and Maiden Estate",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T17:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Banda Perla Gitana (banda)",
+    "venue_name": "Downtown Fridays",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -181,8 +325,152 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Paradise Kings (blues)",
+    "venue_name": "Island Brewing",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Fall Equinox Party presented by Sandala",
+    "venue_name": "(electronic dance)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Dusty Strings (classic rock)",
+    "venue_name": "Corks & Crowns",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Bradford Shaw (classic hits)",
+    "venue_name": "Anchor Rose",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jason Libs (classic hits)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "MoneLuv (psychedelic/classic/dance/pop rock)",
+    "venue_name": "(Goleta)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "TD Lind and The Aviators (blues, rock, americana)",
+    "venue_name": "The Sanger Family Of Wines",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "WhoseHouseIsThis (alt rock)",
+    "venue_name": "Eye on I",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Velvet Noise (90s, 2000, and today\u2019s rock)",
+    "venue_name": "Old Town Wine & Brew",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Terry Lawless (rock)",
+    "venue_name": "s Cellar",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "Hosted by Beau James Wilding",
     "venue_name": "Open Mic Night",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Lois Mahalia (soul, r&b, pop)",
+    "venue_name": "Corktree Cellars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T18:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Dustin Janson (americana, rock, country, blues)",
+    "venue_name": "The Creekside",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -231,6 +519,138 @@
     "source": "LiveNotesSB",
     "title": "Open Mic Night",
     "venue_name": "SloDoCo",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Ross Harper (steel drums)",
+    "venue_name": "Music on the Water Sunset Cruise",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Hot Club of Santa Barbara (gypsy jazz)",
+    "venue_name": "Carr Winery",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Kaleo (traditional and modern Hawaiian music)",
+    "venue_name": "(Salsipuedes)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "RedFish (80s rock party)",
+    "venue_name": "Topa Topa",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "805 Blues Collective (blues) and DayTrip (indie rock)",
+    "venue_name": "Fig Mountain Brewing",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jax Plays Dead (Grateful Dead tribute)(psychedelic rock)",
+    "venue_name": "Brewhouse",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Will Breman (singer/songwriter, alt pop rock)",
+    "venue_name": "The Leta Hotel",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Delta By The Beach (blues)",
+    "venue_name": "(Goleta)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Skunk Puppy (rock, pop, blues, americana)",
+    "venue_name": "High Roller Tiki Lounge",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Melody Klemin (singer/songwriter, folk, americana, soul)",
+    "venue_name": "Sparrow",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T19:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Open Mic Night and Karaoke",
+    "venue_name": "s Country Kitchen",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -325,6 +745,78 @@
   },
   {
     "source": "LiveNotesSB",
+    "title": "Brasscals (brass band)",
+    "venue_name": "Night Lizard Brewing",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Will Stephens and The Essentials (rock, soul, r&b)",
+    "venue_name": "(Downtown SB)",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Alma Sangre (spanish guitar, flamenco dance)",
+    "venue_name": "Lost Chord Guitars",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T20:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Carl Sonny Leyland (swing, rockabilly)",
+    "venue_name": "Santa Barbara Friday Night Swing Dance",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T20:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Instone (r&b, latin, salsa, dance)",
+    "venue_name": "Uptown Lounge",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T20:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jimi Nelson Band (country)",
+    "venue_name": "Maverick Saloon",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T20:30:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
     "title": "6:30",
     "venue_name": "(jazz)",
     "address": "",
@@ -351,6 +843,54 @@
     "source": "LiveNotesSB",
     "title": "Miley Serious (techno)",
     "venue_name": "EOS Lounge",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T21:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "The Sponges (electronic dance) and N2N (electronic dance)",
+    "venue_name": "EOS Lounge",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T21:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Colonel Angus (AC/DC tribute) (hard rock)",
+    "venue_name": "Whiskey Richards",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T21:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Alissa Musto (pianist, entertainer)",
+    "venue_name": "The Red Piano",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-18T21:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Soul Majestic (reggae) with Maritime Law (bluegrass)",
+    "venue_name": "Soho",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
