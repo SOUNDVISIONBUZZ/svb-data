@@ -553,18 +553,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Goodlanders Band (rock, classic rock/pop)",
-    "venue_name": "Buttonwood Winery",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T16:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Adrian Galysh (blues, rock)",
     "venue_name": "Alisal River Grill/ Alisal Ranch",
     "address": "",
@@ -589,42 +577,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Jason Libs (classic hits)",
-    "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Kimberly Ford and Stan Krome (classic rock, jazz)",
-    "venue_name": "Anchor Rose",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Jeff Pine (rock)",
-    "venue_name": "Brothers Red Barn",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T17:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Strings & Arrows (rock, classic rock, folk)",
     "venue_name": "Mosaic Locale",
     "address": "",
@@ -639,6 +591,18 @@
     "source": "LiveNotesSB",
     "title": "Adrian Floy and THC (reggae)",
     "venue_name": "Carhartts Vineyard",
+    "address": "",
+    "city": "Santa Barbara",
+    "zip": "",
+    "start": "2025-09-19T17:00:00-07:00",
+    "tags": [
+      "music"
+    ]
+  },
+  {
+    "source": "LiveNotesSB",
+    "title": "Jeff Pine (rock)",
+    "venue_name": "Brothers Red Barn",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
@@ -721,18 +685,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Guilty Pleasure Boys (classic rock)",
-    "venue_name": "Corks & Crowns",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T17:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Nataly Lola (singer/songwriter, rock, pop, americana, country)",
     "venue_name": "Brave and Maiden Estate",
     "address": "",
@@ -751,42 +703,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-19T17:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "ITH Santa Barbara Beach Hostel",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Brian Kinsella (blues, rock, americana)",
-    "venue_name": "Villa Wine Bar & Kitchen",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T18:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Adrian Galysh (rock, blues)",
-    "venue_name": "Vinland Hotel",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T18:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -985,18 +901,6 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "Hosted by Beau James Wilding",
-    "venue_name": "Open Mic Night",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T18:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "Lois Mahalia (soul, r&b, pop)",
     "venue_name": "Corktree Cellars",
     "address": "",
@@ -1015,42 +919,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-19T18:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Morganfield Burnett (blues)",
-    "venue_name": "(Salsipuedes St.)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T19:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Rick Berthod Band (blues, rock)",
-    "venue_name": "Institution Ale",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T19:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "SloDoCo",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T19:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -1297,72 +1165,12 @@
   },
   {
     "source": "LiveNotesSB",
-    "title": "4",
-    "venue_name": "(classic rock, americana)",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
     "title": "TransAtlantic Guitar Trio ( Richard Smith , Joscho Stephan , and Rory Hoffman ) (jazz, gypsy swing)",
     "venue_name": "Soho",
     "address": "",
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-19T19:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Queentide (rock) with Eternal Wave (classic rock)",
-    "venue_name": "Soho",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T19:45:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Alissa Musto (pianist, entertainer)",
-    "venue_name": "The Red Piano",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Open Mic Night",
-    "venue_name": "Maverick Saloon",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T20:00:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Sheva Elliott (singer/songwriter, rock, soul, americana)",
-    "venue_name": "Lost Chord Guitars",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T20:00:00-07:00",
     "tags": [
       "music"
     ]
@@ -1519,18 +1327,6 @@
     "city": "Santa Barbara",
     "zip": "",
     "start": "2025-09-19T20:30:00-07:00",
-    "tags": [
-      "music"
-    ]
-  },
-  {
-    "source": "LiveNotesSB",
-    "title": "Miley Serious (techno)",
-    "venue_name": "EOS Lounge",
-    "address": "",
-    "city": "Santa Barbara",
-    "zip": "",
-    "start": "2025-09-19T21:00:00-07:00",
     "tags": [
       "music"
     ]
